@@ -1,5 +1,10 @@
 @layer base {
   :root {
+    /* Custom Colors */
+    --sand-beige: 245 245 220;
+    --sage-green: 178 172 136;
+    --pastel-pink: 255 209 220;
+
     /* Primary Colors */
     --primary-50: 240 249 255;
     --primary-100: 224 242 254;
@@ -49,6 +54,11 @@
   }
 
   .dark {
+    /* Custom Colors - Dark Mode */
+    --sand-beige: 245 245 220;
+    --sage-green: 178 172 136;
+    --pastel-pink: 255 209 220;
+
     /* Primary Colors - Dark Mode */
     --primary-50: 8 47 73;
     --primary-100: 12 74 110;

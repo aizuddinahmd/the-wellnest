@@ -10,6 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        "sand-beige": "rgb(var(--sand-beige) / <alpha-value>)",
+        "sage-green": "rgb(var(--sage-green) / <alpha-value>)",
+        "pastel-pink": "rgb(var(--pastel-pink) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
         input: "rgb(var(--input) / <alpha-value>)",
         ring: "rgb(var(--ring) / <alpha-value>)",

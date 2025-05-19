@@ -40,7 +40,7 @@ function DoctorCard({ doctor }: { doctor: Doctor }) {
       className={`group relative flex flex-col items-center rounded-t-full bg-white transition-all duration-300 overflow-hidden min-w-[280px] max-w-[320px] w-full hover:scale-105`}
     >
       {/* Doctor Image */}
-      <div className="w-full h-full flex items-center justify-center bg-white hover:bg-[#c18e4a]">
+      <div className="w-full h-full flex items-center justify-center bg-white hover:bg-[#ffd1dc]">
         <Image
           src={doctor.image}
           alt={doctor.name}
