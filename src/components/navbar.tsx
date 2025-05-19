@@ -21,15 +21,21 @@ function Navbar() {
         {/* Nav Links */}
         <div className="flex-1 flex justify-center gap-10">
           <Link
-            href="services"
+            href="/classes"
             className="text-[#23235b] font-medium hover:text-[#c18e4a] transition-colors"
           >
-            Perkhidmatan
+            Classes
+          </Link>
+          <Link
+            href="/calendar"
+            className="text-[#23235b] font-medium hover:text-[#c18e4a] transition-colors"
+          >
+            Calendar
           </Link>
         </div>
         {/* Contact Button */}
         <Link
-          href="#contact"
+          href="/contact"
           className="hidden md:block bg-[#c18e4a] text-white rounded-xl px-7 py-2 font-medium hover:bg-[#a97a3a] transition-colors text-base shadow-none"
         >
           Hubungi Kami

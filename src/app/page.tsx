@@ -12,21 +12,22 @@ import Services3 from "@/components/Services3";
 import AboutUs from "@/components/AboutUs";
 import ListofTestimonials from "../components/ListofTestimonials";
 // import Hero from "@/components/hero";
-import Hero2 from "@/components/Hero2";
+// import Hero2 from "@/components/Hero2";
 import Footer from "@/components/Footer";
 import AboutUs2 from "@/components/AboutUs2";
+import Hero3 from "@/components/Hero3";
 export default function Home() {
   return (
     <>
       <Navbar />
+      <Hero3 />
       <main className="flex flex-col items-center justify-center min-h-screen bg-[#fef9f6] px-4 py-12">
         {/* <Hero /> */}
-        <Hero2 />
-        {/* <Hero3 /> */}
+        {/* <Hero2 /> */}
         <DescriptionSection />
         {/* <Services /> */}
         {/* <Services2 /> */}
-        <Services3 />
+        {/* <Services3 /> */}
         <AboutUs />
         <FeaturesRight />
         <FeaturesLeft />

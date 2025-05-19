@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function FeaturesRight() {
   return (
-    <section className="w-full py-16 flex flex-col md:flex-row-reverse items-center justify-between gap-12 bg-[#9eaf7c]">
+    <section className="w-full py-16 flex flex-col md:flex-row-reverse items-center justify-between gap-12 bg-[#9eaf7c] rounded-3xl">
       {/* Right: Main image with overlay */}
       <div className="relative flex-1 flex justify-center items-center">
         <div className="w-full md:w-[480px] md:h-[480px] overflow-hidden">
