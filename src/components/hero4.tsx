@@ -37,11 +37,11 @@ export default function Hero4() {
           fill
           priority
           className={`object-cover h-full w-full ${
-            isScrolled ? "rounded-3xl" : "rounded-none"
+            isScrolled ? "rounded-b-3xl" : "rounded-none"
           }`}
         />
         {/* Dark overlay for readability */}
-        <div className="absolute md:rounded-3xl rounded-none inset-0 bg-black/40" />
+        <div className="absolute md:rounded-b-3xl rounded-none inset-0 bg-black/40" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full justify-between">
@@ -63,7 +63,7 @@ export default function Hero4() {
       </section>
       {/* Pill-shaped tags: static below hero on mobile, absolute overlay on desktop */}
       <div
-        className={`relative flex bg-black/90 md:bg-transparent flex-col items-start md:items-center gap-4 px-2 py-6 md:py-6 w-full md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:flex-row md:flex-wrap md:justify-center md:gap-3 md:px-4 md:pb-0 md:w-4xl lg:w-7xl md:z-20 transition-all duration-800 ease-in-out
+        className={`relative flex bg-black/90 md:bg-transparent items-start md:items-center gap-4 px-2 py-6 md:py-6 w-full md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 flex-wrap md:justify-center md:gap-3 md:px-4 md:pb-0 md:w-4xl lg:w-7xl md:z-20 transition-all duration-800 ease-in-out
           ${isScrolled ? "scale-95" : "scale-100"}
         `}
       >

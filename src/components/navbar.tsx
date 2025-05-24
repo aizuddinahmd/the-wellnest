@@ -1,45 +1,107 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav className="w-full bg-[#fef9f6] border-b border-[#e5e0f6]">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Link href="/">
-            <Image
-              src={`/drtwins-logo.png`}
-              alt="Klinik Dr Twins Logo"
-              width={100}
-              height={100}
-              className="object-contain"
-              priority
-            />
-          </Link>
-        </div>
-        {/* Nav Links */}
-        <div className="flex-1 flex justify-center gap-10">
+    <nav className="fixed w-full flex justify-center items-center top-0 left-0 z-50 pointer-events-none">
+      <div className="pointer-events-auto bg-white/10 backdrop-blur-md rounded-full shadow-lg flex items-center justify-between px-6 py-3 mt-4 mx-auto max-w-3xl w-[95vw] relative">
+        {/* Logo (image for mobile) */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/drtwins-logo.png"
+            alt="Klinik Dr Twins Logo"
+            width={100}
+            height={40}
+            className="object-contain h-10 w-auto"
+            priority
+          />
+        </Link>
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center gap-6 ml-8">
           <Link
             href="/classes"
-            className="text-[#23235b] font-medium hover:text-[#c18e4a] transition-colors"
+            className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
           >
             Classes
           </Link>
           <Link
-            href="/calendar"
-            className="text-[#23235b] font-medium hover:text-[#c18e4a] transition-colors"
+            href="/schedule"
+            className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
           >
-            Calendar
+            Schedule
           </Link>
         </div>
-        {/* Contact Button */}
-        <Link
-          href="/contact"
-          className="hidden md:block bg-[#c18e4a] text-white rounded-xl px-7 py-2 font-medium hover:bg-[#a97a3a] transition-colors text-base shadow-none"
+        {/* Desktop Right Side: Dashboard and Get Started */}
+        <div className="hidden md:flex items-center gap-4 ml-8">
+          <Link href="/dashboard" className="text-white font-bold text-base">
+            Dashboard
+          </Link>
+          <Link
+            href="/get-started"
+            className="bg-[#c18e4a] text-black font-semibold rounded-full px-8 py-3 text-base shadow hover:bg-blue-400 transition-colors"
+          >
+            Get Started
+          </Link>
+        </div>
+        {/* Hamburger menu */}
+        <button
+          className="block md:hidden p-2 rounded focus:outline-none"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label="Open menu"
+          aria-expanded={menuOpen}
         >
-          Hubungi Kami
-        </Link>
+          <span className="sr-only">Open menu</span>
+          <svg
+            width="36"
+            height="36"
+            fill="none"
+            stroke="white"
+            strokeWidth="3"
+            viewBox="0 0 24 24"
+          >
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div className="absolute top-full right-0 mt-2 bg-white/90 rounded-xl shadow-lg flex flex-col items-end w-44 py-2 z-50">
+            <Link
+              href="/classes"
+              className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:bg-blue-100 rounded"
+              onClick={() => setMenuOpen(false)}
+            >
+              Classes
+            </Link>
+            <Link
+              href="/schedule"
+              className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:bg-blue-100 rounded"
+              onClick={() => setMenuOpen(false)}
+            >
+              Schedule
+            </Link>
+            <Link
+              href="/dashboard"
+              className="block w-full px-4 py-2 text-gray-800 font-bold text-base hover:bg-blue-100 rounded"
+              onClick={() => setMenuOpen(false)}
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/get-started"
+              className="block w-full px-4 py-2 mt-2 text-center bg-blue-300 text-black font-semibold rounded-full text-base hover:bg-blue-400 transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              Get Started
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
