@@ -71,7 +71,7 @@ export default function ListofTestimonials() {
             ))}
           </CarouselContent>
           <CarouselPrevious />
-          <CarouselNext />
+          <CarouselNext className="hidden md:block" />
         </Carousel>
       </div>
     </section>
