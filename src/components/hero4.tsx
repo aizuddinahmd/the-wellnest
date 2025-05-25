@@ -46,16 +46,17 @@ export default function Hero4() {
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full justify-between">
           {/* Main content */}
-          <main className="flex flex-col items-center justify-center flex-1 px-4 text-center">
+          <main className="flex flex-col items-center justify-center flex-1 px-4 text-left">
             <h2 className="text-white font-semibold tracking-widest text-xs md:text-base mb-2 uppercase">
               FEEL BETTER AND LIVE LONGER
             </h2>
-            <h1 className="text-white font-extrabold text-3xl md:text-6xl leading-tight mb-8 max-w-2xl">
-              Your partner in total health optimization and longevity.
+            <h1 className="text-white text-center  font-extrabold text-3xl md:text-6xl leading-tight mb-8 max-w-2xl">
+              From skin to core, <br />
+              We help you restore
             </h1>
             <div className="flex flex-col gap-4 w-full max-w-md">
-              <button className="bg-white text-gray-900 rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors">
-                Join Geviti
+              <button className="bg-white text-sand-beige rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors">
+                Book now
               </button>
             </div>
           </main>

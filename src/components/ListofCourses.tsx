@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 const courses = [
   {
@@ -82,20 +84,39 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
+const tabs = [
+  { label: "All", value: "all" },
+  { label: "Group Classes", value: "group" },
+  { label: "Private Classes", value: "private" },
+];
+
 export default function ListofCourses() {
+  const [activeTab, setActiveTab] = useState("all");
+
   return (
     <section className="flex flex-col gap-12 bg-[#fef9f6] w-7xl">
       <h1 className="text-4xl font-bold">Classes</h1>
       {/* Filter Bar */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 rounded-3xl bg-[#fef9f6]">
         <div className="flex gap-6 text-lg font-medium">
-          <button className="border-b-2 border-black pb-1">All</button>
-          <button className="text-gray-500 hover:text-black">
-            Group Classes
-          </button>
-          <button className="text-gray-500 hover:text-black">
-            Private Classes
-          </button>
+          {tabs.map((tab) => (
+            <button
+              key={tab.value}
+              onClick={() => setActiveTab(tab.value)}
+              className={`flex flex-col items-center focus:outline-none transition-colors ${
+                activeTab === tab.value
+                  ? "text-dark-green font-bold"
+                  : "text-gray-500"
+              }`}
+            >
+              <span>{tab.label}</span>
+              <span
+                className={`h-1 mt-1 rounded w-6 transition-all duration-200 ${
+                  activeTab === tab.value ? "bg-dark-green" : "bg-transparent"
+                }`}
+              ></span>
+            </button>
+          ))}
         </div>
         <div className="flex gap-4">
           <select className="rounded-xl px-4 py-2 bg-white shadow text-base">

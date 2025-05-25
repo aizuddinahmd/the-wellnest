@@ -1,9 +1,13 @@
 @layer base {
   :root {
     /* Custom Colors */
-    --sand-beige: 245 245 220;
-    --sage-green: 178 172 136;
-    --pastel-pink: 255 209 220;
+    --light-beige: #f5f5dc;
+    --sand-beige: #b7a37a;
+    --dark-beige: #c18e4a;
+    --sage-green: #b2ac88;
+    --pastel-pink: #ffd1dc;
+    --dark-green: #355c4a;
+    --light-green: #99b9a5;
 
     /* Primary Colors */
     --primary-50: 240 249 255;
@@ -93,4 +97,55 @@
     --input: var(--neutral-800);
     --ring: var(--primary-500);
   }
+}
+
+/* Utility classes for custom colors */
+.bg-sand-beige {
+  background: var(--sand-beige);
+}
+.text-sand-beige {
+  color: var(--sand-beige);
+}
+.border-sand-beige {
+  border-color: var(--sand-beige);
+}
+
+.bg-sage-green {
+  background: var(--sage-green);
+}
+.text-sage-green {
+  color: var(--sage-green);
+}
+.border-sage-green {
+  border-color: var(--sage-green);
+}
+
+.bg-pastel-pink {
+  background: var(--pastel-pink);
+}
+.text-pastel-pink {
+  color: var(--pastel-pink);
+}
+.border-pastel-pink {
+  border-color: var(--pastel-pink);
+}
+
+.bg-dark-green {
+  background: var(--dark-green);
+}
+.text-dark-green {
+  color: var(--dark-green);
+}
+.border-dark-green {
+  border-color: var(--dark-green);
+}
+
+.bg-light-green {
+  background: var(--light-green);
+}
+.text-light-green {
+  color: var(--light-green);
+}
+.border-light-green {
+  border-color: var(--light-green);
 }

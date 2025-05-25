@@ -43,9 +43,9 @@ function Navbar() {
           </Link>
           <Link
             href="/get-started"
-            className="bg-[#c18e4a] text-black font-semibold rounded-full px-8 py-3 text-base shadow hover:bg-blue-400 transition-colors"
+            className="bg-[#b7a37a]   text-black font-semibold rounded-full px-8 py-3 text-base shadow hover:bg-[#c18e4a] transition-colors"
           >
-            Get Started
+            Book now
           </Link>
         </div>
         {/* Hamburger menu */}
@@ -98,7 +98,7 @@ function Navbar() {
               className="block w-full px-4 py-2 mt-2 text-center bg-blue-300 text-black font-semibold rounded-full text-base hover:bg-blue-400 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              Get Started
+              Book now
             </Link>
           </div>
         )}

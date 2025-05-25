@@ -12,23 +12,7 @@ export default function MovingSign() {
     "In-app Doctors",
     "Prescription Delivery",
     "Healthcare Consultation",
-
-    // ...add more as needed
   ];
-
-  //   const tags2 = [
-  //     "Automated Diagnostics",
-  //     "Automated Bloodwork",
-  //     "Platform Access",
-  //     "Advanced Diagnostics",
-  //     "Personal Health Coach",
-  //     "Prescription Wellness",
-  //     "Hormone Optimization",
-  //     "Wholesale Products",
-  //     "Custom Protocols",
-  //     "In-app Doctors",
-  //     // ...add more as needed
-  //   ];
 
   return (
     <section className="w-full py-16 bg-white">
@@ -46,7 +30,7 @@ export default function MovingSign() {
             {tags1.map((tag, idx) =>
               tag ? (
                 <li key={tag + idx} className="mx-4">
-                  <span className="inline-block rounded-2xl bg-sky-50 text-blue-300 px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
+                  <span className="inline-block rounded-2xl bg-[#f5f5dc] text-[#999b85] px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
                     {tag}
                   </span>
                 </li>

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import CalendarSection from "./CalendarSection";
 import BookingList from "./BookingList";
+import WeekSelector from "./WeekSelector";
+import WeekSelectorSection from "./WeekSelector";
 
 // const todayStr = format(new Date(), "yyyy-MM-dd");
 
@@ -49,21 +51,11 @@ export default function SchedulePage() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   return (
-    <main className="flex flex-col items-center justify-start min-h-screen bg-[#fef9f6] px-4 py-12 pt-32">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 bg-[#fef9f6] w-7xl">
-        {/* <h1 className="text-3xl font-bold mb-6">Timetable</h1> */}
-        {/* Course List */}
-        <div className="col-span-2">
-          <BookingList selectedDate={selectedDate} />
-        </div>
-
-        {/* Calendar */}
-        <CalendarSection
-          selectedDate={selectedDate}
-          onChange={setSelectedDate}
-        />
-        {/* Filters */}
+    <section className="flex flex-col items-center justify-start min-h-screen bg-[#fef9f6] px-4 py-12 pt-32">
+      <div className="flex flex-col gap-12 bg-[#fef9f6] w-5xl">
+        <WeekSelector selectedDate={selectedDate} onChange={setSelectedDate} />
+        <BookingList selectedDate={selectedDate} />
       </div>
-    </main>
+    </section>
   );
 }
