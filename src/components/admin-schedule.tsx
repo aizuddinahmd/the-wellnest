@@ -76,7 +76,7 @@ export default function AdminSchedule() {
 
   return (
     <div className="flex w-full h-[80vh] bg-[#faf9f6] overflow-hidden border-none">
-      <aside className="w-72 bg-white p-4 flex flex-col gap-6 border-none">
+      <aside className="w-72 bg-white p-2 flex flex-col gap-6 border-none">
         {/* Date Picker */}
         <div>
           <DatePicker
@@ -116,7 +116,7 @@ export default function AdminSchedule() {
         </button>
       </aside>
       {/* Calendar */}
-      <section className="flex-1 p-4 border-none bg-white">
+      <section className="flex-1 p-2 border-none bg-white">
         <BigCalendar
           localizer={localizer}
           events={filteredEvents}
@@ -138,6 +138,7 @@ export default function AdminSchedule() {
           }}
           selectable
           onSelectSlot={handleSelectSlot}
+          className="hover:cursor-pointer"
         />
       </section>
     </div>

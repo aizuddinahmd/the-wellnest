@@ -1,5 +1,7 @@
+"use client";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import AdminScheduleHeader from "@/components/AdminHeader";
 
 export default function AdminLayout({
   children,
@@ -19,7 +21,10 @@ export default function AdminLayout({
             <h1 className="text-lg font-semibold">Admin Panel</h1>
           </header>
           {/* Main Content */}
-          <main className="flex-1 p-6 overflow-auto">{children}</main>
+          <main className="flex-1 p-6 overflow-auto">
+            <AdminScheduleHeader onToday={() => {}} />
+            {children}
+          </main>
         </SidebarInset>
       </div>
     </SidebarProvider>
