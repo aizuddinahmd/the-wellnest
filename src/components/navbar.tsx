@@ -13,8 +13,8 @@ function Navbar() {
         {/* Logo (image for mobile) */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/drtwins-logo.png"
-            alt="Klinik Dr Twins Logo"
+            src="/thewellnest-logo.png"
+            alt="The WellNest Logo"
             width={100}
             height={40}
             className="object-contain h-10 w-auto"

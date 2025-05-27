@@ -19,11 +19,12 @@ import AboutUs2 from "@/components/AboutUs2";
 import MovingSign from "@/components/MovingSign";
 // import Hero3 from "@/components/Hero3";
 import Hero4 from "@/components/hero4";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <Hero3 /> */}
 
       <Hero4 />

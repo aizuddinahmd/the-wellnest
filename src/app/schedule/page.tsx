@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import CalendarSection from "./CalendarSection";
+// import CalendarSection from "./CalendarSection";
 import BookingList from "./BookingList";
 import WeekSelector from "./WeekSelector";
-import WeekSelectorSection from "./WeekSelector";
+import Navbar from "@/components/navbar";
 
 // const todayStr = format(new Date(), "yyyy-MM-dd");
 
@@ -52,6 +52,7 @@ export default function SchedulePage() {
 
   return (
     <section className="flex flex-col items-center justify-start min-h-screen bg-[#fef9f6] px-4 py-12 pt-32">
+      <Navbar />
       <div className="flex flex-col gap-12 bg-[#fef9f6] w-5xl">
         <WeekSelector selectedDate={selectedDate} onChange={setSelectedDate} />
         <BookingList selectedDate={selectedDate} />

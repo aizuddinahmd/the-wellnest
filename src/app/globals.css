@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -154,4 +155,8 @@
 .animate-infinite-scroll:hover,
 .animate-infinite-scroll-reverse:hover {
   animation-play-state: paused;
+}
+/* globals.css or a relevant CSS file */
+.rbc-time-content {
+  background-color: #fff !important;
 }
