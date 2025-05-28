@@ -8,15 +8,17 @@ import {
 } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Switch } from "@headlessui/react";
+import { eventService } from "@/app/services/eventService";
+// import { Switch } from "@headlessui/react";
 
 interface DrawerProps {
   open: boolean;
   onClose: () => void;
+  onSave: (event: any) => void;
   children?: ReactNode;
 }
 
-export default function DrawerSchedule({ open, onClose }: DrawerProps) {
+export default function DrawerSchedule({ open, onClose, onSave }: DrawerProps) {
   // Form state (for demo)
   const [repeat, setRepeat] = useState("none");
   const [colorOpen, setColorOpen] = useState(false);
@@ -35,15 +37,51 @@ export default function DrawerSchedule({ open, onClose }: DrawerProps) {
   const [instructor, setInstructor] = useState("");
   const [classPax, setClassPax] = useState(9);
   const [waitlist, setWaitlist] = useState(2);
-  const [allowClassPass, setAllowClassPass] = useState(false);
-  const [setPrivate, setSetPrivate] = useState(false);
+  // const [allowClassPass, setAllowClassPass] = useState(false);
+  // const [setPrivate, setSetPrivate] = useState(false);
   const [publish, setPublish] = useState("now");
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [classTitle, setClassTitle] = useState("");
 
   const handleToggleDay = (idx: number) => {
     setWeeklyDays((prev) =>
       prev.includes(idx) ? prev.filter((d) => d !== idx) : [...prev, idx]
     );
+  };
+
+  const handleSave = async () => {
+    try {
+      const eventData = {
+        title: classTitle,
+        start_time: new Date(
+          startDate?.getFullYear() ?? 2024,
+          startDate?.getMonth() ?? 0,
+          startDate?.getDate() ?? 1,
+          startTime?.getHours() ?? 8,
+          startTime?.getMinutes() ?? 0
+        ).toISOString(),
+        end_time: new Date(
+          startDate?.getFullYear() ?? 2024,
+          startDate?.getMonth() ?? 0,
+          startDate?.getDate() ?? 1,
+          (startTime?.getHours() ?? 8) + 1,
+          startTime?.getMinutes() ?? 0
+        ).toISOString(),
+        instructor,
+        class_pax: classPax,
+        waitlist,
+        color: "#00bfae", // or your color picker value
+        repeat,
+        repeat_days: repeat === "weekly" ? weeklyDays : null,
+      };
+
+      const savedEvent = await eventService.createEvent(eventData);
+      onSave(savedEvent);
+      onClose();
+    } catch (error) {
+      // Handle error (show toast, etc.)
+      console.error("Failed to save event:", error);
+    }
   };
 
   if (!open) return null;
@@ -70,6 +108,8 @@ export default function DrawerSchedule({ open, onClose }: DrawerProps) {
               className="w-full border rounded-lg px-4 py-2 pr-10 text-base"
               placeholder="Hot Yoga"
               defaultValue="Hot Yoga"
+              value={classTitle}
+              onChange={(e) => setClassTitle(e.target.value)}
             />
             <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
           </div>
@@ -442,6 +482,7 @@ export default function DrawerSchedule({ open, onClose }: DrawerProps) {
             <button
               type="button"
               className="bg-[#355c4a] text-white rounded-full px-8 py-2 font-semibold text-base shadow hover:cursor-pointer hover:bg-[#355c4a]/80 transition-colors"
+              onClick={handleSave}
             >
               Save
             </button>

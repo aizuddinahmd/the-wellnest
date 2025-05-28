@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Calendar as BigCalendar,
   dateFnsLocalizer,
   Views,
-  DateLocalizer,
 } from "react-big-calendar";
 import { format } from "date-fns/format";
 import { parse } from "date-fns/parse";
@@ -13,6 +12,9 @@ import { enUS } from "date-fns/locale/en-US";
 import DatePicker from "react-datepicker";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
+import DrawerSchedule from "./DrawerSchedule";
+import { eventService } from "@/app/services/eventService";
+import { Event } from "@/app/types/event";
 
 const locales = {
   "en-US": enUS,
@@ -33,25 +35,65 @@ const staffList = [
   { id: 5, name: "Ridho Aulia" },
 ];
 
-const initialEvents = [
-  {
-    id: 1,
-    title: "(No class)",
-    start: new Date(2025, 5, 25, 9, 0),
-    end: new Date(2025, 5, 25, 10, 0),
-    staffId: 1,
-  },
-];
+// const initialEvents = [
+//   {
+//     id: 1,
+//     title: "(No class)",
+//     start: new Date(2025, 5, 25, 9, 0),
+//     end: new Date(2025, 5, 25, 10, 0),
+//     staffId: 1,
+//   },
+// ];
 
 export default function AdminSchedule() {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date(2025, 5, 25));
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedStaff, setSelectedStaff] = useState<number[]>([1]);
-  const events = initialEvents;
+  const [events, setEvents] = useState<Event[]>([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch events from Supabase
+  const fetchEvents = async () => {
+    try {
+      setIsLoading(true);
+      const fetchedEvents = await eventService.getEvents();
+      console.log("Fetched events:", fetchedEvents); // Debug log
+      setEvents(fetchedEvents);
+    } catch (error) {
+      console.error("Failed to fetch events:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Load events on component mount
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  // Transform database events to calendar format
+  const calendarEvents = events.map((event: Event) => {
+    console.log("Processing event:", event); // Debug log
+    return {
+      id: event.id,
+      title: event.title,
+      start: new Date(event.start_time),
+      end: new Date(event.end_time),
+      instructor: event.instructor,
+      classPax: event.class_pax,
+      waitlist: event.waitlist,
+      color: event.color || "#00bfae",
+      repeat: event.repeat,
+      repeatDays: event.repeat_days,
+    };
+  });
+
+  console.log("Calendar events:", calendarEvents); // Debug log
 
   // Filter events by selected staff
-  const filteredEvents = events.filter((e) =>
-    selectedStaff.includes(e.staffId)
-  );
+  // const filteredEvents = events.filter((e) =>
+  //   selectedStaff.includes(e.staffId)
+  // );
 
   const handleStaffChange = (id: number) => {
     setSelectedStaff((prev) =>
@@ -64,83 +106,105 @@ export default function AdminSchedule() {
   };
 
   // Custom event style
-  const eventPropGetter = () => ({
-    className: "bg-teal-400 text-white rounded shadow border-0 px-2 py-1",
-    style: { border: "none" },
+  const eventPropGetter = (event: Event) => ({
+    className: "text-white rounded shadow border-0 px-2 py-1",
+    style: {
+      backgroundColor: event.color || "#00bfae",
+      border: "none",
+    },
   });
 
   // Handler for slot click
-  const handleSelectSlot = (slotInfo: any) => {
-    alert("Clicked at " + slotInfo.start);
+  const handleSelectSlot = () => {
+    setDrawerOpen(true);
+  };
+
+  // Handler to add a new event
+  const handleSaveEvent = (eventDetails: Event) => {
+    setEvents((prev) => [...prev, eventDetails]);
+    setDrawerOpen(false);
   };
 
   return (
-    <div className="flex w-full h-[80vh] bg-[#faf9f6] overflow-hidden border-none">
-      <aside className="w-72 bg-white p-2 flex flex-col gap-6 border-none">
-        {/* Date Picker */}
-        <div>
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date) => date && setSelectedDate(date)}
-            inline
-            calendarClassName="!bg-white rounded-xl shadow"
-            dayClassName={() => "!rounded-full"}
-          />
-        </div>
-        {/* Staff Filter */}
-        <div>
-          <h3 className="font-semibold mb-2">Staff</h3>
-          <div className="flex flex-col gap-1 max-h-40 overflow-y-auto">
-            {staffList.map((staff) => (
-              <label
-                key={staff.id}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={selectedStaff.includes(staff.id)}
-                  onChange={() => handleStaffChange(staff.id)}
-                  className="accent-teal-500 w-4 h-4 rounded"
-                />
-                <span className="text-sm">{staff.name}</span>
-              </label>
-            ))}
+    <>
+      <div className="flex w-full h-full bg-[#faf9f6] overflow-hidden border-none">
+        <aside className="w-72 bg-white p-2 flex flex-col gap-6 border-none">
+          {/* Date Picker */}
+          <div>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => date && setSelectedDate(date)}
+              inline
+              calendarClassName="!bg-white rounded-xl shadow"
+              dayClassName={() => "!rounded-full"}
+            />
           </div>
-        </div>
-        {/* Apply Button */}
-        <button
-          className="mt-auto bg-black text-white rounded-full py-2 font-semibold text-base hover:bg-teal-600 transition-colors"
-          onClick={handleApply}
-        >
-          Apply
-        </button>
-      </aside>
-      {/* Calendar */}
-      <section className="flex-1 p-2 border-none bg-white">
-        <BigCalendar
-          localizer={localizer}
-          events={filteredEvents}
-          defaultView={Views.WEEK}
-          views={[Views.WEEK]}
-          step={60}
-          timeslots={1}
-          min={new Date(2025, 0, 6, 8, 0)}
-          max={new Date(2025, 0, 6, 20, 0)}
-          date={selectedDate}
-          onNavigate={(date) => setSelectedDate(date)}
-          style={{ height: "100%" }}
-          eventPropGetter={eventPropGetter}
-          toolbar={false}
-          formats={{
-            dayFormat: (date: Date, culture: string, localizer: any) =>
-              localizer.format(date, "EEE dd", culture),
-            timeGutterFormat: (date: Date) => format(date, "h a"),
-          }}
-          selectable
-          onSelectSlot={handleSelectSlot}
-          className="hover:cursor-pointer"
-        />
-      </section>
-    </div>
+          {/* Staff Filter */}
+          <div>
+            <h3 className="font-semibold mb-2">Staff</h3>
+            <div className="flex flex-col gap-1 max-h-40 overflow-y-auto">
+              {staffList.map((staff) => (
+                <label
+                  key={staff.id}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedStaff.includes(staff.id)}
+                    onChange={() => handleStaffChange(staff.id)}
+                    className="accent-teal-500 w-4 h-4 rounded"
+                  />
+                  <span className="text-sm">{staff.name}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          {/* Apply Button */}
+          <button
+            className="mt-auto bg-black text-white rounded-full py-2 font-semibold text-base hover:bg-teal-600 transition-colors"
+            onClick={handleApply}
+          >
+            Apply
+          </button>
+        </aside>
+        {/* Calendar */}
+        <section className="flex-1 p-2 border-none bg-white">
+          {isLoading ? (
+            <div className="flex items-center justify-center h-full">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
+            </div>
+          ) : (
+            <BigCalendar
+              localizer={localizer}
+              events={calendarEvents}
+              defaultView={Views.WEEK}
+              views={[Views.WEEK]}
+              step={60}
+              timeslots={1}
+              min={new Date(2025, 0, 6, 8, 0)}
+              max={new Date(2025, 0, 6, 20, 0)}
+              date={selectedDate}
+              onNavigate={(date) => setSelectedDate(date)}
+              style={{ height: "100%" }}
+              eventPropGetter={eventPropGetter}
+              toolbar={false}
+              formats={{
+                dayFormat: (date: Date, culture: string, localizer: any) =>
+                  localizer.format(date, "EEE dd", culture),
+                timeGutterFormat: (date: Date) => format(date, "h a"),
+              }}
+              selectable
+              onSelectSlot={handleSelectSlot}
+              className="hover:cursor-pointer"
+            />
+          )}
+        </section>
+      </div>
+      <DrawerSchedule
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        onSave={handleSaveEvent}
+      />
+    </>
   );
 }

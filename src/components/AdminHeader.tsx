@@ -11,6 +11,10 @@ export default function AdminScheduleHeader({
 }: AdminScheduleHeaderProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const handleSaveEvent = () => {
+    // Implementation of handleSaveEvent function
+  };
+
   return (
     <div className="flex items-center gap-4 mb-4">
       {/* +Create Button */}
@@ -29,7 +33,11 @@ export default function AdminScheduleHeader({
       </button>
 
       {/* Drawer */}
-      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}></Drawer>
+      <Drawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        onSave={handleSaveEvent}
+      ></Drawer>
     </div>
   );
 }
