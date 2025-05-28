@@ -14,7 +14,7 @@ import { eventService } from "@/app/services/eventService";
 interface DrawerProps {
   open: boolean;
   onClose: () => void;
-  onSave: (event: any) => void;
+  onSave: (event: Event) => void;
   children?: ReactNode;
 }
 
