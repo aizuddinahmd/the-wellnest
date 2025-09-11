@@ -38,9 +38,6 @@ function Navbar() {
         </div>
         {/* Desktop Right Side: Dashboard and Get Started */}
         <div className="hidden md:flex items-center gap-4 ml-8">
-          <Link href="/dashboard" className="text-white font-bold text-base">
-            Dashboard
-          </Link>
           <Link
             href="/get-started"
             className="bg-[#b7a37a]   text-black font-semibold rounded-full px-8 py-3 text-base shadow hover:bg-[#c18e4a] transition-colors"
@@ -85,13 +82,6 @@ function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Schedule
-            </Link>
-            <Link
-              href="/dashboard"
-              className="block w-full px-4 py-2 text-gray-800 font-bold text-base hover:bg-blue-100 rounded"
-              onClick={() => setMenuOpen(false)}
-            >
-              Dashboard
             </Link>
             <Link
               href="/get-started"

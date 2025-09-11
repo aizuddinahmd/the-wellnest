@@ -9,6 +9,7 @@ import {
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { eventService } from "@/app/services/eventService";
+import { isToday } from "date-fns";
 // import { Switch } from "@headlessui/react";
 
 interface DrawerProps {
@@ -20,16 +21,16 @@ interface DrawerProps {
 
 export default function DrawerSchedule({ open, onClose, onSave }: DrawerProps) {
   // Form state (for demo)
-  const [repeat, setRepeat] = useState("none");
+  const [repeat, setRepeat] = useState<"none" | "daily" | "weekly">("none");
   const [colorOpen, setColorOpen] = useState(false);
   const [startTime, setStartTime] = useState<Date | null>(
-    new Date(2024, 3, 9, 8, 0)
+    new Date(new Date().setHours(8, 0, 0, 0))
   );
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [startDate, setStartDate] = useState<Date | null>(new Date(2024, 3, 9));
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [dailyTime, setDailyTime] = useState<Date | null>(
-    new Date(2024, 3, 9, 8, 0)
+    new Date(new Date().setHours(8, 0, 0, 0))
   );
   const [showDailyTimePicker, setShowDailyTimePicker] = useState(false);
   const [weeklyDays, setWeeklyDays] = useState<number[]>([]); // 0=Sun, 1=Mon, ...

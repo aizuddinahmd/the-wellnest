@@ -9,12 +9,13 @@ import { parse } from "date-fns/parse";
 import { startOfWeek } from "date-fns/startOfWeek";
 import { getDay } from "date-fns/getDay";
 import { enUS } from "date-fns/locale/en-US";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DrawerSchedule from "./DrawerSchedule";
 import { eventService } from "@/app/services/eventService";
 import { Event } from "@/app/types/event";
+import CustomCalendar from "./CustomCalendar";
 
 const locales = {
   "en-US": enUS,
@@ -45,7 +46,7 @@ const staffList = [
 //   },
 // ];
 
-export default function AdminSchedule() {
+export default function Scheduler() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedStaff, setSelectedStaff] = useState<number[]>([1]);
   const [events, setEvents] = useState<Event[]>([]);
@@ -125,22 +126,66 @@ export default function AdminSchedule() {
     setDrawerOpen(false);
   };
 
+  // Example: mark 6th, 11th, 18th, 23rd as event days
+  const eventDates = [
+    new Date(2020, 5, 6),
+    new Date(2020, 5, 11),
+    new Date(2020, 5, 18),
+    new Date(2020, 5, 23),
+  ];
+
   return (
-    <>
-      <div className="flex w-full h-full bg-[#faf9f6] overflow-hidden border-none">
-        <aside className="w-72 bg-white p-2 flex flex-col gap-6 border-none">
+    <div className=" w-full h-full bg-gray-200 overflow-hidden border-none grid grid-cols-3 gap-4">
+      <section className="flex-1 p-2 border-none bg-white col-span-2 rounded-2xl shadow-lg">
+        {isLoading ? (
+          <div className="flex items-center justify-center h-full">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
+          </div>
+        ) : (
+          <BigCalendar
+            localizer={localizer}
+            events={calendarEvents}
+            defaultView={Views.WEEK}
+            views={[Views.WEEK]}
+            step={60}
+            timeslots={1}
+            min={new Date(2025, 0, 6, 8, 0)}
+            max={new Date(2025, 0, 6, 20, 0)}
+            date={selectedDate}
+            onNavigate={(date) => setSelectedDate(date)}
+            style={{ height: "100%" }}
+            eventPropGetter={eventPropGetter}
+            toolbar={false}
+            formats={{
+              dayFormat: (date: Date, culture: string, localizer: any) =>
+                localizer.format(date, "EEE dd", culture),
+              timeGutterFormat: (date: Date) => format(date, "h a"),
+            }}
+            selectable
+            onSelectSlot={handleSelectSlot}
+            className="hover:cursor-pointer"
+          />
+        )}
+      </section>
+      <div className="flex w-full h-full bg-white rounded-2xl shadow-lg border-none justify-center items-start col-span-1">
+        <aside className="w-full p-2 flex flex-col gap-6 border-none justify-center items-center ">
           {/* Date Picker */}
-          <div>
-            <DatePicker
+          <CustomCalendar
+            selectedDate={selectedDate}
+            onChange={setSelectedDate}
+            eventDates={eventDates}
+          />
+
+          {/* <DatePicker
               selected={selectedDate}
               onChange={(date) => date && setSelectedDate(date)}
               inline
               calendarClassName="!bg-white rounded-xl shadow"
               dayClassName={() => "!rounded-full"}
-            />
-          </div>
+            /> */}
+
           {/* Staff Filter */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold mb-2">Staff</h3>
             <div className="flex flex-col gap-1 max-h-40 overflow-y-auto">
               {staffList.map((staff) => (
@@ -158,53 +203,22 @@ export default function AdminSchedule() {
                 </label>
               ))}
             </div>
-          </div>
+          </div> */}
           {/* Apply Button */}
           <button
-            className="mt-auto bg-black text-white rounded-full py-2 font-semibold text-base hover:bg-teal-600 transition-colors"
+            className="mt-auto w-full bg-black text-white rounded-full py-2 font-semibold text-base hover:bg-teal-600 transition-colors"
             onClick={handleApply}
           >
             Apply
           </button>
         </aside>
         {/* Calendar */}
-        <section className="flex-1 p-2 border-none bg-white">
-          {isLoading ? (
-            <div className="flex items-center justify-center h-full">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
-            </div>
-          ) : (
-            <BigCalendar
-              localizer={localizer}
-              events={calendarEvents}
-              defaultView={Views.WEEK}
-              views={[Views.WEEK]}
-              step={60}
-              timeslots={1}
-              min={new Date(2025, 0, 6, 8, 0)}
-              max={new Date(2025, 0, 6, 20, 0)}
-              date={selectedDate}
-              onNavigate={(date) => setSelectedDate(date)}
-              style={{ height: "100%" }}
-              eventPropGetter={eventPropGetter}
-              toolbar={false}
-              formats={{
-                dayFormat: (date: Date, culture: string, localizer: any) =>
-                  localizer.format(date, "EEE dd", culture),
-                timeGutterFormat: (date: Date) => format(date, "h a"),
-              }}
-              selectable
-              onSelectSlot={handleSelectSlot}
-              className="hover:cursor-pointer"
-            />
-          )}
-        </section>
       </div>
       <DrawerSchedule
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         onSave={handleSaveEvent}
       />
-    </>
+    </div>
   );
 }

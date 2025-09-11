@@ -31,8 +31,8 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Create Post",
-          url: "/create/create-post",
+          title: "Create Classes",
+          url: "/create-classes",
         },
         {
           title: "Draft",
@@ -97,13 +97,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="flex items-center justify-center p-2 mb-4">
-          <Image
-            src="/thewellnest-logo.png"
-            alt="The Wellnest"
-            width={200}
-            height={20}
-            unoptimized
-          />
+          <a href="/admin/dashboard">
+            <Image
+              src="/thewellnest-logo.png"
+              alt="The Wellnest"
+              width={200}
+              height={20}
+              unoptimized
+            />
+          </a>
         </div>
       </SidebarHeader>
       <SidebarContent>
