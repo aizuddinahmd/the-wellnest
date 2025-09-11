@@ -1,7 +1,7 @@
 import { CreateEventDTO, Event } from "@/app/types/event";
 
 // Mock events storage
-let mockEvents: Event[] = [
+const mockEvents: Event[] = [
   {
     id: "1",
     title: "Yoga Class",
