@@ -19,7 +19,6 @@ import {
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { ChartBar } from "@phosphor-icons/react";
-import { createClient } from "@/utils/supabase/client";
 
 // This is sample data.
 const data = {
@@ -54,43 +53,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const isScheduleActive = pathname === "/schedule";
   const isAnalyticsActive = pathname === "/analytics";
 
-  // Fetch current user data
+  // Set static user data
   React.useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const supabase = createClient();
-        const {
-          data: { user: authUser },
-        } = await supabase.auth.getUser();
-
-        if (!authUser) {
-          return;
-        }
-
-        // Get user profile data if available
-        const { data: profileData } = await supabase
-          .from("profiles")
-          .select("display_name, avatar_url")
-          .eq("id", authUser.id)
-          .single();
-
-        setUser({
-          name:
-            profileData?.display_name ||
-            authUser.user_metadata?.display_name ||
-            authUser.email?.split("@")[0] ||
-            "",
-          email: authUser.email || "",
-          avatar: profileData?.avatar_url || "/avatars/default.jpg",
-        });
-      } catch (error) {
-        console.error("Error in fetchUserData:", error);
-      } finally {
-        setHasMounted(true);
-      }
-    };
-
-    fetchUserData();
+    setUser({
+      name: "John Doe",
+      email: "john@example.com",
+      avatar: "/avatars/default.jpg",
+    });
+    setHasMounted(true);
   }, []);
 
   return (

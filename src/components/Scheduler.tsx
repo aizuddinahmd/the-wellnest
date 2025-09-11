@@ -53,13 +53,42 @@ export default function Scheduler() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch events from Supabase
+  // Mock events data
   const fetchEvents = async () => {
     try {
       setIsLoading(true);
-      const fetchedEvents = await eventService.getEvents();
-      console.log("Fetched events:", fetchedEvents); // Debug log
-      setEvents(fetchedEvents);
+      // Mock events data
+      const mockEvents = [
+        {
+          id: "1",
+          title: "Yoga Class",
+          start_time: new Date(2024, 11, 20, 9, 0).toISOString(),
+          end_time: new Date(2024, 11, 20, 10, 0).toISOString(),
+          instructor: "Sarah Johnson",
+          class_pax: 15,
+          waitlist: 3,
+          color: "#00bfae",
+          repeat: "weekly" as const,
+          repeat_days: [1, 3, 5],
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        },
+        {
+          id: "2",
+          title: "Pilates Session",
+          start_time: new Date(2024, 11, 21, 14, 0).toISOString(),
+          end_time: new Date(2024, 11, 21, 15, 0).toISOString(),
+          instructor: "Mike Chen",
+          class_pax: 12,
+          waitlist: 1,
+          color: "#ff6b6b",
+          repeat: "none" as const,
+          repeat_days: null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        },
+      ];
+      setEvents(mockEvents);
     } catch (error) {
       console.error("Failed to fetch events:", error);
     } finally {

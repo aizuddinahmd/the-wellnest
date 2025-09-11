@@ -28,7 +28,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createClient } from "@/utils/supabase/client";
 
 export function ProjectSwitcher({
   projects,
@@ -98,47 +97,23 @@ export function ProjectSwitcher({
     setError("");
 
     try {
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      // Mock project creation
+      const newProject = {
+        id: Date.now().toString(),
+        name: newProjectName.trim(),
+      };
 
-      if (!user) {
-        setError("You must be logged in to create a project");
-        return;
+      // Update the active project
+      setActiveProject(newProject);
+
+      // Let the parent component know about the change
+      if (onProjectChange) {
+        onProjectChange(newProject);
       }
 
-      const { data, error } = await supabase
-        .from("projects")
-        .insert([{ name: newProjectName.trim(), user_id: user.id }])
-        .select();
-
-      if (error) {
-        console.error("Error creating project:", error);
-        setError(error.message);
-        return;
-      }
-
-      if (data && data.length > 0) {
-        // Add the new project to the existing projects
-        const newProject = data[0];
-        // const updatedProjects = [...projects, newProject];
-
-        // Update the active project
-        setActiveProject(newProject);
-
-        // Let the parent component know about the change
-        if (onProjectChange) {
-          onProjectChange(newProject);
-        }
-
-        // Close the dialog
-        setShowDialog(false);
-        setNewProjectName("");
-
-        // Force a page refresh to update the projects list
-        window.location.reload();
-      }
+      // Close the dialog
+      setShowDialog(false);
+      setNewProjectName("");
     } catch (err) {
       console.error("Error in handleCreateProject:", err);
       setError("Failed to create project. Please try again.");
