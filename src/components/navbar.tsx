@@ -4,6 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+// Navigation links constant
+const navLinks = [
+  { href: "/face", label: "Face" },
+  { href: "/skin", label: "Skin" },
+  { href: "/body", label: "Body" },
+  { href: "/health-wellness", label: "Health & Wellness" },
+];
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,18 +31,15 @@ function Navbar() {
         </Link>
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6 ml-8">
-          <Link
-            href="/classes"
-            className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
-          >
-            Classes
-          </Link>
-          <Link
-            href="/schedule"
-            className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
-          >
-            Schedule
-          </Link>
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              href={link.href}
+              className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
         {/* Desktop Right Side: Dashboard and Get Started */}
         <div className="hidden md:flex items-center gap-4 ml-8">
@@ -69,20 +74,16 @@ function Navbar() {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="absolute top-full right-0 mt-2 bg-white/90 rounded-xl shadow-lg flex flex-col items-end w-44 py-2 z-50">
-            <Link
-              href="/classes"
-              className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:bg-blue-100 rounded"
-              onClick={() => setMenuOpen(false)}
-            >
-              Classes
-            </Link>
-            <Link
-              href="/schedule"
-              className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:bg-blue-100 rounded"
-              onClick={() => setMenuOpen(false)}
-            >
-              Schedule
-            </Link>
+            {navLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:bg-blue-100 rounded"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
               href="/get-started"
               className="block w-full px-4 py-2 mt-2 text-center bg-blue-300 text-black font-semibold rounded-full text-base hover:bg-blue-400 transition-colors"
