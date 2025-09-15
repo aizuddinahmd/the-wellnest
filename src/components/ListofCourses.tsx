@@ -2,74 +2,29 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const courses = [
-  {
-    id: 1,
-    title: "Reformer Flow",
-    image: "/courses/reformer-flow.jpg",
-    rating: 4.5,
-    reviews: 28,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "New to Pilates? Let's get down to the nitty-gritty. Learn the basics through controlled and precise movements. Contact...",
-  },
-  {
-    id: 2,
-    title: "Strengthen, Lengthen, Tone",
-    image: "/courses/strengthen-lengthen-tone.jpg",
-    rating: 5,
-    reviews: 16,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "Created for those who love a higher intensity workout. This full body class will work all your muscles...",
-  },
-  {
-    id: 3,
-    title: "Arms, Booty, Core",
-    image: "/courses/arms-booty-core.jpg",
-    rating: 5,
-    reviews: 16,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "This all level class is aimed to help you to progress in your Pilates journey. Classes will offer...",
-  },
-  {
-    id: 4,
-    title: "Reformer Flow",
-    image: "/courses/reformer-flow.jpg",
-    rating: 4.5,
-    reviews: 28,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "New to Pilates? Let's get down to the nitty-gritty. Learn the basics through controlled and precise movements. Contact...",
-  },
-  {
-    id: 5,
-    title: "Strengthen, Lengthen, Tone",
-    image: "/courses/strengthen-lengthen-tone.jpg",
-    rating: 5,
-    reviews: 16,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "Created for those who love a higher intensity workout. This full body class will work all your muscles...",
-  },
-  {
-    id: 6,
-    title: "Arms, Booty, Core",
-    image: "/courses/arms-booty-core.jpg",
-    rating: 5,
-    reviews: 16,
-    duration: 55,
-    level: "Open to all",
-    description:
-      "This all level class is aimed to help you to progress in your Pilates journey. Classes will offer...",
-  },
-];
+// TypeScript interfaces
+interface Course {
+  id: number;
+  title: string;
+  image: string;
+  rating: number;
+  reviews: number;
+  duration: number;
+  level: string;
+  description: string;
+}
+
+interface Tab {
+  label: string;
+  value: string;
+}
+
+interface ListofCoursesProps {
+  courses: Course[];
+  title?: string;
+  tabs?: Tab[];
+  showFilters?: boolean;
+}
 
 function StarRating({ rating }: { rating: number }) {
   const fullStars = Math.floor(rating);
@@ -84,52 +39,60 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-const tabs = [
+// Default tabs
+const defaultTabs = [
   { label: "All", value: "all" },
   { label: "Group Classes", value: "group" },
   { label: "Private Classes", value: "private" },
 ];
 
-export default function ListofCourses() {
+export default function ListofCourses({
+  courses,
+  title = "Classes",
+  tabs = defaultTabs,
+  showFilters = true,
+}: ListofCoursesProps) {
   const [activeTab, setActiveTab] = useState("all");
 
   return (
-    <section className="flex flex-col gap-12 bg-[#fef9f6] w-7xl">
-      <h1 className="text-4xl font-bold">Classes</h1>
+    <section className="flex flex-col gap-12 bg-[#d2d8be] w-7xl">
+      <h1 className="text-4xl font-bold">{title}</h1>
       {/* Filter Bar */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 rounded-3xl bg-[#fef9f6]">
-        <div className="flex gap-6 text-lg font-medium">
-          {tabs.map((tab) => (
-            <button
-              key={tab.value}
-              onClick={() => setActiveTab(tab.value)}
-              className={`flex flex-col items-center focus:outline-none transition-colors ${
-                activeTab === tab.value
-                  ? "text-dark-green font-bold"
-                  : "text-gray-500"
-              }`}
-            >
-              <span>{tab.label}</span>
-              <span
-                className={`h-1 mt-1 rounded w-6 transition-all duration-200 ${
-                  activeTab === tab.value ? "bg-dark-green" : "bg-transparent"
+      {showFilters && (
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 rounded-3xl bg-[#d2d8be]">
+          <div className="flex gap-6 text-lg font-medium">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => setActiveTab(tab.value)}
+                className={`flex flex-col items-center focus:outline-none transition-colors ${
+                  activeTab === tab.value
+                    ? "text-dark-green font-bold"
+                    : "text-gray-500"
                 }`}
-              ></span>
-            </button>
-          ))}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`h-1 mt-1 rounded w-6 transition-all duration-200 ${
+                    activeTab === tab.value ? "bg-dark-green" : "bg-transparent"
+                  }`}
+                ></span>
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
+              <option>All class types</option>
+            </select>
+            <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
+              <option>All sub categories</option>
+            </select>
+            <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
+              <option>All difficulty levels</option>
+            </select>
+          </div>
         </div>
-        <div className="flex gap-4">
-          <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
-            <option>All class types</option>
-          </select>
-          <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
-            <option>All sub categories</option>
-          </select>
-          <select className="rounded-xl px-4 py-2 bg-white shadow text-base">
-            <option>All difficulty levels</option>
-          </select>
-        </div>
-      </div>
+      )}
       {/* Courses Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {courses.map((course) => (
