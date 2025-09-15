@@ -32,8 +32,8 @@ export default function Hero4() {
       >
         {/* Background image */}
         <Image
-          src="/hero-1.png"
-          alt="Hero Curve"
+          src="/pilates/pilates-1.jpg"
+          alt="Hero Pilates"
           fill
           priority
           className={`object-cover h-full w-full ${
@@ -55,7 +55,7 @@ export default function Hero4() {
               We help you restore
             </h1>
             <div className="flex flex-col gap-4 w-full max-w-md">
-              <button className="bg-white text-sand-beige rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors">
+              <button className="bg-white text-sand-beige rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer">
                 Book now
               </button>
             </div>

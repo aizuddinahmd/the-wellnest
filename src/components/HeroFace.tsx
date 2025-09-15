@@ -17,12 +17,13 @@ function Hero() {
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-[#41484e] font-serif">
           What Can You Expect
         </h1>
-        <p className="text-lg text-[#44454a] max-w-lg">
-          Your journey begins with a comprehensive Wellness Consultation. We’ll
-          sit down with you to discuss your specific skin and fitness goals.
-          Based on this, we'll help you schedule your first signature facial and
-          book an introductory private Pilates session. This ensures your
-          program is perfectly tailored to your needs right from the start.
+        <p className="text-lg text-[#41484e] max-w-lg">
+          Your journey begins with a comprehensive Wellness Consultation.
+          We&apos;ll sit down with you to discuss your specific skin and fitness
+          goals. Based on this, we&apos;ll help you schedule your first
+          signature facial and book an introductory private Pilates session.
+          This ensures your program is perfectly tailored to your needs right
+          from the start.
         </p>
         <button className="bg-[#9eaf7c] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#a97a3a] transition-colors">
           Get Appointment
