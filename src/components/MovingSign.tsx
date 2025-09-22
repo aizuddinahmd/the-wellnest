@@ -15,7 +15,7 @@ export default function MovingSign() {
   ];
 
   return (
-    <section className="w-full py-16 bg-white">
+    <section className="w-full py-16 bg-[#D6A496]">
       <div className="flex-col w-full inline-flex flex-nowrap overflow-hidden gap-8">
         {[0, 1, 2].map((_, i) => (
           <ul

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function DescriptionSection() {
   return (
-    <section className="flex flex-col md:flex-row gap-6 justify-center my-12 px-4">
+    <section className="flex flex-col md:flex-row gap-6 justify-center my-12 px-4 bg-[#d6a496]">
       {/* Card 1: Hubungi Kami */}
       <div className="flex flex-col md:flex-1 items-center bg-white rounded-2xl shadow-md p-8 min-w-[260px] max-w-sm mx-auto">
         <Image
