@@ -69,6 +69,9 @@ export default function AboutUs2() {
 
   return (
     <section className="w-full bg-[#f5f7fd] py-16 px-4 rounded-3xl">
+      <div className="text-4xl font-bold text-[#23235b] mb-8 text-center font-serif">
+        Meet Our Instructors
+      </div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Right: Doctor Cards */}
         <div className="flex-1 flex flex-col md:flex-row gap-6 justify-center w-full overflow-x-auto md:overflow-visible">

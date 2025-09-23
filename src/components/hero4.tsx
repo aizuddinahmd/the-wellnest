@@ -23,10 +23,10 @@ export default function Hero4() {
   }, []);
 
   return (
-    <>
+    <div className="bg-[#D6A496]">
       <section
         ref={heroRef}
-        className={`relative h-full md:h-screen w-full overflow-hidden duration-800 ease-in-out
+        className={`relative bg-[#D6A496] h-full md:h-screen w-full overflow-hidden duration-800 ease-in-out
           ${isScrolled ? "scale-95" : "scale-100"}
         `}
       >
@@ -90,6 +90,6 @@ export default function Hero4() {
           </span>
         ))}
       </div>
-    </>
+    </div>
   );
 }
