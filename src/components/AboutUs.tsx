@@ -7,8 +7,8 @@ export default function AboutUs() {
         {/* Top Left: Large Image */}
         <div className="rounded-2xl overflow-hidden border border-gray-300">
           <Image
-            src="/drtwins-team.jpg"
-            alt="Team"
+            src="/pilates/pilates-2.png"
+            alt="pilates"
             width={600}
             height={400}
             className="object-cover w-full h-full"
@@ -30,8 +30,8 @@ export default function AboutUs() {
         {/* Middle Left: Small Image */}
         <div className="rounded-2xl overflow-hidden border border-gray-300">
           <Image
-            src="/clinic-6.JPG"
-            alt="Clinic"
+            src="/face/face-1.png"
+            alt="Pilates"
             width={400}
             height={300}
             className="object-cover w-full h-full"
@@ -50,7 +50,7 @@ export default function AboutUs() {
         {/* Middle Right: Small Image */}
         <div className="rounded-2xl overflow-hidden border border-gray-300">
           <Image
-            src="/clinic-2.JPG"
+            src="/skin/skin-1.png"
             alt="clinic"
             width={200}
             height={200}
