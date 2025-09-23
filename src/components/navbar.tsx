@@ -35,7 +35,7 @@ function Navbar() {
             <Link
               key={index}
               href={link.href}
-              className="text-white font-semibold text-base hover:text-blue-200 transition-colors"
+              className="text-white font-semibold text-base hover:text-[#D6A496] transition-colors"
             >
               {link.label}
             </Link>
