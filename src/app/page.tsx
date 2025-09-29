@@ -21,6 +21,7 @@ import MovingSign from "@/components/MovingSign";
 import Hero4 from "@/components/hero4";
 import Navbar from "@/components/navbar";
 import Packages from "@/components/Packages";
+import Memberships from "@/components/Memberships";
 
 export default function Home() {
   return (
@@ -42,6 +43,7 @@ export default function Home() {
         {/* <FeaturesLeft /> */}
         <AboutUs2 />
         <Packages />
+        <Memberships />
         <ListofTestimonials />
         <Footer />
       </main>

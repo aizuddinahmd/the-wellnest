@@ -1,23 +1,22 @@
 "use client";
 
-import { PackageComparison } from "@/app/types/package";
-import { PACKAGE_COMPARISON } from "@/app/services/packageData";
+import { MembershipComparison } from "@/app/types/membership";
+import { MEMBERSHIP_COMPARISON } from "@/app/services/membershipData";
 import { Card } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
 
-interface PackagesProps {
-  data?: PackageComparison;
+interface MembershipsProps {
+  data?: MembershipComparison;
   className?: string;
 }
 
-export default function Packages({
-  data = PACKAGE_COMPARISON,
+export default function Memberships({
+  data = MEMBERSHIP_COMPARISON,
   className = "",
-}: PackagesProps) {
-  const { features, packages } = data;
+}: MembershipsProps) {
+  const { features, memberships } = data;
 
-  const renderFeatureValue = (value: number | boolean) => {
+  const renderFeatureValue = (value: number | boolean | string) => {
     if (typeof value === "boolean") {
       return value ? (
         <Check className="h-5 w-5 text-green-500 mx-auto" />
@@ -25,6 +24,11 @@ export default function Packages({
         <X className="h-5 w-5 text-red-500 mx-auto" />
       );
     }
+
+    if (typeof value === "string") {
+      return <span className="text-gray-700 font-medium text-sm">{value}</span>;
+    }
+
     return <span className="text-gray-700 font-medium">{value}</span>;
   };
 
@@ -34,17 +38,17 @@ export default function Packages({
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-6">
-            Packages
+            Membership
           </h2>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             At The Wellnest, we invite you to nurture your strength, beauty, and
-            wellbeing through our thoughtfully designed packages. Choose the
+            wellbeing through our thoughtfully designed memberships. Choose the
             path that resonates with your goals, and let us guide you on a
             transformative journey towards a healthier, more radiant you.
           </p>
         </div>
 
-        {/* Package Comparison Table */}
+        {/* Membership Comparison Table */}
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -56,28 +60,24 @@ export default function Packages({
                       Features
                     </span>
                   </th>
-                  {/* Package headers */}
-                  {packages.map((pkg, index) => (
+                  {/* Membership headers */}
+                  {memberships.map((membership) => (
                     <th
-                      key={pkg.packageName}
+                      key={membership.membershipName}
                       className="w-56 px-4 py-8 text-center relative"
-                      style={{ backgroundColor: pkg.color }}
+                      style={{ backgroundColor: membership.color }}
                     >
                       <div className="text-white">
                         <div className="text-lg font-medium opacity-90 mb-2">
-                          {pkg.packageName}
+                          {membership.membershipName}
                         </div>
                         <div className="text-2xl font-bold">
-                          {pkg.currency}
-                          {pkg.price}
+                          {membership.currency}
+                          {membership.price}
                         </div>
-                        {/* {pkg.popular && (
-                          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                            <span className="bg-yellow-400 text-yellow-900 text-xs font-semibold px-2 py-1 rounded-full">
-                              Most Popular
-                            </span>
-                          </div>
-                        )} */}
+                        <div className="text-sm opacity-80 mt-1">
+                          {membership.billingPeriod}
+                        </div>
                       </div>
                     </th>
                   ))}
@@ -97,13 +97,13 @@ export default function Packages({
                         {feature.name}
                       </div>
                     </td>
-                    {/* Feature values for each package */}
-                    {packages.map((pkg, pkgIndex) => (
+                    {/* Feature values for each membership */}
+                    {memberships.map((membership) => (
                       <td
-                        key={`${feature.id}-${pkg.packageName}`}
+                        key={`${feature.id}-${membership.membershipName}`}
                         className="px-4 py-6 text-center border border-gray-200"
                       >
-                        {renderFeatureValue(pkg.features[feature.id])}
+                        {renderFeatureValue(membership.features[feature.id])}
                       </td>
                     ))}
                   </tr>
@@ -112,16 +112,6 @@ export default function Packages({
             </table>
           </div>
         </Card>
-
-        {/* Call to Action */}
-        {/* <div className="text-center mt-12">
-          <Button
-            size="lg"
-            className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3"
-          >
-            Choose Your Package
-          </Button>
-        </div> */}
       </div>
     </div>
   );
