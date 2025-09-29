@@ -2,39 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { SERVICES_MINI } from "@/app/services/serviceData";
 
-const services = [
-  {
-    icon: "/services/rawatan-pesakit-luar.png",
-    title: "Rawatan Pesakit Luar",
-    desc: "Kami menyediakan rawatan kesihatan yang biasa dilakukan di klinik kami, contohnya seperti rawatan demam, batuk, selsema, gastrik atau GERD, migrain dan lain-lain",
-  },
-  {
-    icon: "/services/pemeriksaan-kesihatan.png",
-    title: "Pemeriksaan Kesihatan",
-    desc: "Kami menyediakan perkhidmatan untuk pelbagai jenis pemeriksaan kesihatan seperti pelajar, pekerja asing, GDL dan e-hailing.",
-  },
-  {
-    icon: "/services/ultrasound-scan.png",
-    title: "Ultrasound Scan",
-    desc: "Kami menggunakan mesin Ultrasound yang terkini yang boleh mengimbas secara 2d, 3d, 4d & 5d.",
-  },
-  {
-    icon: "/services/pemeriksaan-kuning-bayi.png",
-    title: "Pemeriksaan Kuning Bayi",
-    desc: "Inovaso perubatan terkini yang dikembangkan secara eksklusif untuk menghilangkan kesulitan dan kesakitan bayi",
-  },
-  {
-    icon: "/services/ujian-darah.png",
-    title: "Ujian Darah",
-    desc: "Kami menyediakan perkhidmatan ujian saringan kesihatan melalui pengambilan darah",
-  },
-  {
-    icon: "/services/cucian-luka.png",
-    title: "Cucian Luka",
-    desc: "Kami menyediakan perkhidmatan cucian luka seperti luka kencing manis, luka selepas operasi, luka kemalangan dan lain-lain",
-  },
-];
+// data moved to shared module
 
 export default function Services3() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -45,7 +15,7 @@ export default function Services3() {
         Our services
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {services.map((service, i) => {
+        {SERVICES_MINI.map((service, i) => {
           // For the center card in the second row, show the description if open
           if (openIndex === i) {
             return (
