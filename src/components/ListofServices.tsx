@@ -2,26 +2,28 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { SERVICES } from "@/app/services/serviceData";
+import { ServiceItem } from "@/app/types/service";
 
-// data moved to shared module
+interface ListofServicesProps {
+  services: ServiceItem[];
+}
 
-export default function ListofServices() {
+export default function ListofServices({ services }: ListofServicesProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-      {SERVICES.map((service) => (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+      {services.map((service) => (
         <Card
           key={service.title}
-          className="border-[#bcbcbc] bg-white p-8 hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
+          className="border-[#bcbcbc] bg-[#f5e8da] p-8 hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
         >
-          <CardContent className="flex flex-col md:flex-row items-center gap-6">
-            <div className="flex-shrink-0 flex items-center justify-center w-24 h-24 mb-4 md:mb-0 md:mr-6">
+          <CardContent className="flex flex-col md:flex-col items-center gap-6">
+            <div className="flex-shrink-0 flex items-center justify-center mb-4 md:mb-0 md:mr-6 rounded-2xl overflow-hidden">
               <Image
                 src={service.icon}
                 alt={service.title}
-                width={80}
-                height={80}
-                className="object-contain"
+                width={500}
+                height={300}
+                className="object-cover w-full h-64"
               />
             </div>
             <div className="flex-1 flex flex-col items-start">
