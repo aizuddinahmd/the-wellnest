@@ -372,6 +372,63 @@ export const BODY_SERVICES: ServiceItem[] = [
   },
 ];
 
+export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
+  // PILATES GROUP CLASSES
+  {
+    icon: "/pilates/pilates-1.jpg",
+    title: "Mat Pilates (Beginner & Intermediate)",
+    category: "pilates-group",
+    desc: "Group mat Pilates classes suitable for beginners and intermediate levels. Focus on core strength, flexibility, and body awareness using bodyweight exercises.",
+    button: "Learn more",
+  },
+  {
+    icon: "/pilates/pilates-2.png",
+    title: "Reformer Pilates (Beginner & Intermediate)",
+    category: "pilates-group",
+    desc: "Group Reformer Pilates classes for beginners and intermediate levels. Utilize specialized equipment to enhance strength, flexibility, and posture with guided resistance.",
+    button: "Learn more",
+  },
+
+  // PILATES PRIVATE CLASSES
+  {
+    icon: "/pilates/pilates-1.jpg",
+    title: "1:1 Private Mat Pilates",
+    category: "pilates-private",
+    desc: "Personalized one-on-one mat Pilates sessions tailored to your specific needs and fitness goals. Perfect for focused attention and customized instruction.",
+    button: "Learn more",
+  },
+  {
+    icon: "/pilates/pilates-2.png",
+    title: "1:1 Private Reformer Pilates",
+    category: "pilates-private",
+    desc: "Exclusive one-on-one Reformer Pilates sessions with personalized attention. Ideal for addressing specific concerns and achieving individual fitness objectives.",
+    button: "Learn more",
+  },
+
+  // FITNESS GROUP CLASSES
+  {
+    icon: "/features/features-1.png",
+    title: "Zumba",
+    category: "fitness-group",
+    desc: "High-energy dance fitness class combining Latin and international music with easy-to-follow dance moves. Perfect for cardio, fun, and stress relief.",
+    button: "Learn more",
+  },
+  {
+    icon: "/features/features-2.png",
+    title: "Baby-wearing Dance",
+    category: "fitness-group",
+    desc: "Specialized dance fitness class designed for parents with babies. Safe and fun way to exercise while bonding with your little one through movement and music.",
+    button: "Learn more",
+  },
+  {
+    icon: "/features/features-3.png",
+    title: "HIIT",
+    category: "fitness-group",
+    desc: "High-Intensity Interval Training class combining short bursts of intense exercise with brief recovery periods. Maximize calorie burn and improve cardiovascular fitness.",
+    button: "Learn more",
+  },
+];
+
 export const SERVICES_MINI: ServiceItem[] = [
   {
     icon: "/services/rawatan-pesakit-luar.png",
