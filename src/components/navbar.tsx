@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { ServiceCategory } from "@/lib/serviceUtils";
 
 // Navigation links constant
 const navLinks = [
@@ -15,7 +16,11 @@ const navLinks = [
   { href: "/memberships", label: "Memberships" },
 ];
 
-function Navbar() {
+interface NavbarProps {
+  activeCategory?: ServiceCategory;
+}
+
+function Navbar({ activeCategory }: NavbarProps = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -36,7 +41,9 @@ function Navbar() {
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6 ml-8">
           {navLinks.map((link, index) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href ||
+              (activeCategory && link.href === `/${activeCategory}`);
             return (
               <Link
                 key={index}
@@ -85,7 +92,9 @@ function Navbar() {
         {menuOpen && (
           <div className="absolute top-full right-0 mt-2 bg-white/90 rounded-xl shadow-lg flex flex-col items-end w-44 py-2 z-50">
             {navLinks.map((link, index) => {
-              const isActive = pathname === link.href;
+              const isActive =
+                pathname === link.href ||
+                (activeCategory && link.href === `/${activeCategory}`);
               return (
                 <Link
                   key={index}

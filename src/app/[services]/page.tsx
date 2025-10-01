@@ -3,28 +3,23 @@
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
-import {
-  SKIN_SERVICES,
-  BODY_SERVICES,
-  HEALTH_WELLNESS_SERVICES,
-} from "@/app/services/serviceData";
+import { getAllServices, getServiceCategory } from "@/lib/serviceUtils";
 import { useState } from "react";
 
 export default function ServiceDetailPage() {
   const params = useParams();
   const serviceName = decodeURIComponent(params.services as string);
 
-  // Combine all services
-  const allServices = [
-    ...SKIN_SERVICES,
-    ...BODY_SERVICES,
-    ...HEALTH_WELLNESS_SERVICES,
-  ];
+  // Get all services using utility function
+  const allServices = getAllServices();
 
   // Find the service by title
   const service = allServices.find(
     (s) => s.title.toLowerCase().replace(/\s+/g, "-") === serviceName
   );
+
+  // Determine the category of the current service
+  const activeCategory = service ? getServiceCategory(service.title) : null;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -49,8 +44,8 @@ export default function ServiceDetailPage() {
   }
 
   return (
-    <section className="flex flex-col items-center min-h-screen bg-[#f5f1ed] px-4 py-12">
-      <Navbar />
+    <section className="flex flex-col items-center min-h-screen bg-[#f5e8da] px-4 py-12">
+      <Navbar activeCategory={activeCategory || undefined} />
 
       <div className="max-w-7xl w-full mt-24">
         {/* Hero Section */}
@@ -60,7 +55,7 @@ export default function ServiceDetailPage() {
             <p className="text-sm font-medium text-gray-600 mb-2 italic">
               {service.title}
             </p>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
               {service.title}
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -84,7 +79,7 @@ export default function ServiceDetailPage() {
 
         {/* How We Can Help Section */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-8">
             How we can help?
           </h2>
 
@@ -100,7 +95,7 @@ export default function ServiceDetailPage() {
                     <span className="text-3xl font-light text-gray-800">
                       {openIndex === index ? "−" : "+"}
                     </span>
-                    <span className="text-2xl font-normal text-gray-900">
+                    <span className="text-lg font-normal text-gray-900">
                       {subService.title}
                     </span>
                   </div>

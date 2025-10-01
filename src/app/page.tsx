@@ -33,7 +33,7 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center min-h-screen bg-[#D6A496] px-4 py-12">
         {/* <Hero /> */}
         {/* <Hero2 /> */}
-        <DescriptionSection />
+        {/* <DescriptionSection /> */}
         {/* <Services /> */}
         {/* <Services2 /> */}
         {/* <Services3 /> */}
