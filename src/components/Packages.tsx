@@ -1,10 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { PackageComparison } from "@/app/types/package";
 import { PACKAGE_COMPARISON } from "@/app/services/packageData";
 import { Card } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
-import { Check, X } from "lucide-react";
+import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PackagesProps {
   data?: PackageComparison;
@@ -16,6 +16,7 @@ export default function Packages({
   className = "",
 }: PackagesProps) {
   const { features, packages } = data;
+  const [currentPackageIndex, setCurrentPackageIndex] = useState(0);
 
   const renderFeatureValue = (value: number | boolean) => {
     if (typeof value === "boolean") {
@@ -26,6 +27,18 @@ export default function Packages({
       );
     }
     return <span className="text-gray-700 font-medium">{value}</span>;
+  };
+
+  const handlePrevPackage = () => {
+    setCurrentPackageIndex((prev) =>
+      prev === 0 ? packages.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextPackage = () => {
+    setCurrentPackageIndex((prev) =>
+      prev === packages.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -44,8 +57,87 @@ export default function Packages({
           </p>
         </div>
 
-        {/* Package Comparison Table */}
-        <Card className="overflow-hidden">
+        {/* Mobile View - Card Slider */}
+        <div className="lg:hidden">
+          <div className="relative">
+            {/* Package Card */}
+            <Card className="overflow-hidden">
+              {/* Package Header */}
+              <div
+                className="px-6 py-8 text-center"
+                style={{ backgroundColor: packages[currentPackageIndex].color }}
+              >
+                <div className="text-white">
+                  <div className="text-2xl font-medium mb-2">
+                    {packages[currentPackageIndex].packageName}
+                  </div>
+                  <div className="text-4xl font-bold">
+                    {packages[currentPackageIndex].currency}
+                    {packages[currentPackageIndex].price}
+                  </div>
+                  <p className="text-sm mt-2 opacity-90">
+                    {packages[currentPackageIndex].description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Package Features */}
+              <div className="divide-y divide-gray-200">
+                {features.map((feature, featureIndex) => (
+                  <div
+                    key={feature.id}
+                    className={`px-6 py-4 flex justify-between items-center ${
+                      featureIndex % 2 === 0 ? "bg-white" : "bg-[#f2ece7]"
+                    }`}
+                  >
+                    <div className="text-gray-800 font-medium text-sm flex-1 text-left">
+                      {feature.name}
+                    </div>
+                    <div className="flex-shrink-0 ml-4">
+                      {renderFeatureValue(
+                        packages[currentPackageIndex].features[feature.id]
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-between mb-4">
+              <button
+                onClick={handlePrevPackage}
+                className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
+                aria-label="Previous package"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-700" />
+              </button>
+              <div className="flex gap-2">
+                {packages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPackageIndex(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      index === currentPackageIndex
+                        ? "w-8 bg-gray-700"
+                        : "w-2 bg-gray-300"
+                    }`}
+                    aria-label={`Go to package ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={handleNextPackage}
+                className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
+                aria-label="Next package"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-700" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View - Table */}
+        <Card className="overflow-hidden hidden lg:block">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -57,7 +149,7 @@ export default function Packages({
                     </span>
                   </th>
                   {/* Package headers */}
-                  {packages.map((pkg, index) => (
+                  {packages.map((pkg) => (
                     <th
                       key={pkg.packageName}
                       className="w-56 px-4 py-8 text-center relative"
@@ -71,13 +163,6 @@ export default function Packages({
                           {pkg.currency}
                           {pkg.price}
                         </div>
-                        {/* {pkg.popular && (
-                          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                            <span className="bg-yellow-400 text-yellow-900 text-xs font-semibold px-2 py-1 rounded-full">
-                              Most Popular
-                            </span>
-                          </div>
-                        )} */}
                       </div>
                     </th>
                   ))}
@@ -98,7 +183,7 @@ export default function Packages({
                       </div>
                     </td>
                     {/* Feature values for each package */}
-                    {packages.map((pkg, pkgIndex) => (
+                    {packages.map((pkg) => (
                       <td
                         key={`${feature.id}-${pkg.packageName}`}
                         className="px-4 py-6 text-center border border-gray-200"
@@ -112,16 +197,6 @@ export default function Packages({
             </table>
           </div>
         </Card>
-
-        {/* Call to Action */}
-        {/* <div className="text-center mt-12">
-          <Button
-            size="lg"
-            className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3"
-          >
-            Choose Your Package
-          </Button>
-        </div> */}
       </div>
     </div>
   );

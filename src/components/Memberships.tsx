@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { MembershipComparison } from "@/app/types/membership";
 import { MEMBERSHIP_COMPARISON } from "@/app/services/membershipData";
 import { Card } from "@/components/ui/card";
-import { Check, X } from "lucide-react";
+import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MembershipsProps {
   data?: MembershipComparison;
@@ -15,6 +16,7 @@ export default function Memberships({
   className = "",
 }: MembershipsProps) {
   const { features, memberships } = data;
+  const [currentMembershipIndex, setCurrentMembershipIndex] = useState(0);
 
   const renderFeatureValue = (value: number | boolean | string) => {
     if (typeof value === "boolean") {
@@ -30,6 +32,18 @@ export default function Memberships({
     }
 
     return <span className="text-gray-700 font-medium">{value}</span>;
+  };
+
+  const handlePrevMembership = () => {
+    setCurrentMembershipIndex((prev) =>
+      prev === 0 ? memberships.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextMembership = () => {
+    setCurrentMembershipIndex((prev) =>
+      prev === memberships.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -48,8 +62,92 @@ export default function Memberships({
           </p>
         </div>
 
-        {/* Membership Comparison Table */}
-        <Card className="overflow-hidden">
+        {/* Mobile View - Card Slider */}
+        <div className="lg:hidden">
+          <div className="relative">
+            {/* Membership Card */}
+            <Card className="overflow-hidden">
+              {/* Membership Header */}
+              <div
+                className="px-6 py-8 text-center"
+                style={{
+                  backgroundColor: memberships[currentMembershipIndex].color,
+                }}
+              >
+                <div className="text-white">
+                  <div className="text-2xl font-medium mb-2">
+                    {memberships[currentMembershipIndex].membershipName}
+                  </div>
+                  <div className="text-4xl font-bold">
+                    {memberships[currentMembershipIndex].currency}
+                    {memberships[currentMembershipIndex].price}
+                  </div>
+                  <div className="text-sm opacity-90 mt-2">
+                    {memberships[currentMembershipIndex].billingPeriod}
+                  </div>
+                  <p className="text-sm mt-2 opacity-90">
+                    {memberships[currentMembershipIndex].description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Membership Features */}
+              <div className="divide-y divide-gray-200">
+                {features.map((feature, featureIndex) => (
+                  <div
+                    key={feature.id}
+                    className={`px-6 py-4 flex justify-between items-center ${
+                      featureIndex % 2 === 0 ? "bg-white" : "bg-[#f2ece7]"
+                    }`}
+                  >
+                    <div className="text-gray-800 font-medium text-sm flex-1 text-left">
+                      {feature.name}
+                    </div>
+                    <div className="flex-shrink-0 ml-4">
+                      {renderFeatureValue(
+                        memberships[currentMembershipIndex].features[feature.id]
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-between mt-4">
+              <button
+                onClick={handlePrevMembership}
+                className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
+                aria-label="Previous membership"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-700" />
+              </button>
+              <div className="flex gap-2">
+                {memberships.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentMembershipIndex(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      index === currentMembershipIndex
+                        ? "w-8 bg-gray-700"
+                        : "w-2 bg-gray-300"
+                    }`}
+                    aria-label={`Go to membership ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={handleNextMembership}
+                className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors"
+                aria-label="Next membership"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-700" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View - Table */}
+        <Card className="overflow-hidden hidden lg:block">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>

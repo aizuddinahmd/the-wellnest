@@ -7,10 +7,12 @@ import { usePathname } from "next/navigation";
 
 // Navigation links constant
 const navLinks = [
-  { href: "/face", label: "Face" },
+  // { href: "/face", label: "Face" },
   { href: "/skin", label: "Skin" },
   { href: "/body", label: "Body" },
   { href: "/health-wellness", label: "Health & Wellness" },
+  { href: "/packages", label: "Packages" },
+  { href: "/memberships", label: "Memberships" },
 ];
 
 function Navbar() {
@@ -19,14 +21,14 @@ function Navbar() {
 
   return (
     <nav className="fixed w-full flex justify-center items-center top-0 left-0 z-50 pointer-events-none">
-      <div className="pointer-events-auto bg-white/10 backdrop-blur-md rounded-full shadow-lg flex items-center justify-between px-6 py-3 mt-4 mx-auto max-w-3xl w-[95vw] relative">
+      <div className="pointer-events-auto bg-white/10 backdrop-blur-md rounded-full shadow-lg flex items-center justify-between px-6 py-3 mt-4 mx-auto max-w-4xl w-[95vw] relative">
         {/* Logo (image for mobile) */}
         <Link href="/" className="flex items-center">
           <Image
             src="/thewellnest-logo.png"
             alt="The WellNest Logo"
-            width={100}
-            height={40}
+            width={160}
+            height={80}
             className="object-contain h-10 w-auto"
             priority
           />
