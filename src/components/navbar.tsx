@@ -26,7 +26,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
 
   return (
     <nav className="fixed w-full flex justify-center items-center top-0 left-0 z-50 pointer-events-none">
-      <div className="pointer-events-auto bg-white/10 backdrop-blur-md rounded-full shadow-lg flex items-center justify-between px-6 py-3 mt-4 mx-auto max-w-4xl w-[95vw] relative">
+      <div className="pointer-events-auto bg-neutral-300/20 hover:bg-neutral-400/30 backdrop-blur-[5px] border border-neutral-300/20 rounded-full shadow-lg flex items-center justify-between px-6 py-3 mt-4 mx-auto max-w-4xl w-[95vw] relative">
         {/* Logo (image for mobile) */}
         <Link href="/" className="flex items-center">
           <Image
@@ -50,7 +50,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={`${
-                  isActive ? "text-[#D6A496]" : "text-white"
+                  isActive ? "text-[#D6A496]" : "text-neutral-600"
                 } font-semibold text-base hover:text-[#D6A496] transition-colors`}
               >
                 {link.label}
@@ -62,7 +62,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
         <div className="hidden md:flex items-center gap-4 ml-8">
           <Link
             href="/get-started"
-            className="bg-[#b7a37a]   text-black font-semibold rounded-full px-8 py-3 text-base shadow hover:bg-[#c18e4a] transition-colors"
+            className="bg-[#d6a496]   text-black font-semibold rounded-full px-8 py-3 text-base shadow transition-colors"
           >
             Book now
           </Link>
@@ -111,7 +111,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
             })}
             <Link
               href="/get-started"
-              className="block w-full px-4 py-2 mt-2 text-center bg-blue-300 text-black font-semibold rounded-full text-base hover:bg-blue-400 transition-colors"
+              className="block w-full px-4 py-2 mt-2 text-center bg-[#d6a496] text-black font-semibold rounded-full text-base hover:bg-[#d6a496]/60 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               Book now

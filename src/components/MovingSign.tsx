@@ -15,7 +15,7 @@ export default function MovingSign() {
   ];
 
   return (
-    <section className="w-full py-16 bg-[#D6A496]">
+    <section className="w-full py-16 bg-[#f5e8da]">
       <div className="flex-col w-full inline-flex flex-nowrap overflow-hidden gap-8">
         {[0, 1, 2].map((_, i) => (
           <ul
@@ -30,7 +30,7 @@ export default function MovingSign() {
             {tags1.map((tag, idx) =>
               tag ? (
                 <li key={tag + idx} className="mx-4">
-                  <span className="inline-block rounded-2xl bg-[#f5f5dc] text-[#999b85] px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
+                  <span className="inline-block rounded-2xl bg-[#d2d8be] text-[#999b85] px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
                     {tag}
                   </span>
                 </li>

@@ -23,10 +23,10 @@ export default function Hero4() {
   }, []);
 
   return (
-    <div className="bg-[#D6A496]">
+    <div className="bg-[#f5e8da]">
       <section
         ref={heroRef}
-        className={`relative bg-[#D6A496] h-full md:h-screen w-full overflow-hidden duration-800 ease-in-out
+        className={`relative bg-[#f5e8da] h-full md:h-screen w-full overflow-hidden duration-800 ease-in-out
           ${isScrolled ? "scale-95" : "scale-100"}
         `}
       >
@@ -41,7 +41,7 @@ export default function Hero4() {
           }`}
         />
         {/* Dark overlay for readability */}
-        <div className="absolute md:rounded-b-3xl rounded-none inset-0 bg-black/40" />
+        <div className="absolute md:rounded-b-3xl rounded-none inset-0 bg-neutral-500/40" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full justify-between">
@@ -55,7 +55,7 @@ export default function Hero4() {
               We help you restore
             </h1>
             <div className="flex flex-col gap-4 w-full max-w-md">
-              <button className="bg-white text-sand-beige rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer">
+              <button className="bg-white text-[#d6a496] rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer">
                 Book now
               </button>
             </div>
