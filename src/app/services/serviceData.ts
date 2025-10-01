@@ -1,63 +1,6 @@
 import { ServiceItem } from "@/app/types/service";
 
-export const GENERAL_SERVICES: ServiceItem[] = [
-  {
-    icon: "/ibu-mengandung.svg",
-    title: "General Health Consultation",
-    category: "general",
-    desc: "Discuss health concerns, receive personlaized advice, and develop a plan for maintaining or imporving overall well-being",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/rawatan-pesakit-luar.png",
-    title: "Skin Analysis",
-    category: "general",
-    desc: "Provides an in-depth assessment of your skin's health using expert visual inspection to identify issues like pigmentation, wrinkles, texture, and hidration",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/pemeriksaan-kesihatan.png",
-    title: "Women's Health Consultation",
-    category: "general",
-    desc: "Provides an in-depth assessment about menstrual health, hormonal balance, fertility planning and reproductive health.",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/ultrasound-scan.png",
-    title: "Lactation Consultation",
-    category: "general",
-    desc: "Provides support and guidance on breastfeeding practises from a certified professional to help mothers with issues like latching, milk supply, and comfort during feedings",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/pemeriksaan-kuning-bayi.png",
-    title: "Posture Analysis",
-    category: "general",
-    desc: "Provides a physical assessment to evaluate the alignment and balance of the body's segments to identify imbalances and correct posture",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/ujian-darah.png",
-    title: "Mental Health Assessment",
-    category: "general",
-    desc: "Provides a structured evaluation to understand a person’s emotional, psychological, and social well-being. It helps identify early signs of stress, anxiety, depression, or other concerns, and provides guidance for maintaining a healthy mind.",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/cucian-luka.png",
-    title: "Diet Assessment",
-    category: "general",
-    desc: "a simple evaluation of a person’s eating habits and nutrition to understand whether their diet supports their health goals and overall well-being.",
-    button: "Ketahui lebih lanjut",
-  },
-  {
-    icon: "/services/rawatan-asma.png",
-    title: "Body Composition Analysis",
-    category: "general",
-    desc: "Provides a comprehensive breakdown of your body's components beyond simple weight, detailing percentages of fat, muscle, bone, and water. ",
-    button: "Ketahui lebih lanjut",
-  },
-];
+export const GENERAL_SERVICES: ServiceItem[] = [];
 export const SKIN_SERVICES: ServiceItem[] = [
   {
     icon: "/services/vaksinasi-imunisasi.png",
@@ -346,7 +289,55 @@ export const BODY_SERVICES: ServiceItem[] = [
 export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
   {
     icon: "/pilates/pilates-1.jpg",
-    title: "Pilates (Group Classes)",
+    title: "General",
+    desc: "General health consultation, skin analysis, women's health consultation, lactation consultation, posture analysis, mental health assessment, diet assessment, and body composition analysis.",
+    button: "Learn more",
+    services: [
+      {
+        title: "General Health Consultation",
+        desc: "Discuss health concerns, receive personlaized advice, and develop a plan for maintaining or imporving overall well-being",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Skin Analysis",
+        desc: "Provides an in-depth assessment of your skin's health using expert visual inspection to identify issues like pigmentation, wrinkles, texture, and hidration",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Women's Health Consultation",
+        desc: "Provides an in-depth assessment about menstrual health, hormonal balance, fertility planning and reproductive health.",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Lactation Consultation",
+        desc: "Provides support and guidance on breastfeeding practises from a certified professional to help mothers with issues like latching, milk supply, and comfort during feedings",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Posture Analysis",
+        desc: "Provides a physical assessment to evaluate the alignment and balance of the body's segments to identify imbalances and correct posture",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Mental Health Assessment",
+        desc: "Provides a structured evaluation to understand a person’s emotional, psychological, and social well-being. It helps identify early signs of stress, anxiety, depression, or other concerns, and provides guidance for maintaining a healthy mind.",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Diet Assessment",
+        desc: "a simple evaluation of a person’s eating habits and nutrition to understand whether their diet supports their health goals and overall well-being.",
+        button: "Ketahui lebih lanjut",
+      },
+      {
+        title: "Body Composition Analysis",
+        desc: "Provides a comprehensive breakdown of your body's components beyond simple weight, detailing percentages of fat, muscle, bone, and water. ",
+        button: "Ketahui lebih lanjut",
+      },
+    ],
+  },
+  {
+    icon: "/pilates/pilates-1.jpg",
+    title: "Pilates",
     desc: "Experience the transformative power of Pilates in our dynamic group classes. Suitable for beginners and intermediate levels, our classes focus on core strength, flexibility, and body awareness in a supportive community environment.",
     button: "Learn more",
     services: [
@@ -360,22 +351,9 @@ export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
         desc: "Group Reformer Pilates classes for beginners and intermediate levels. Utilize specialized equipment to enhance strength, flexibility, and posture with guided resistance. RM70/session",
         button: "Learn more",
       },
-    ],
-  },
-  {
-    icon: "/pilates/pilates-2.png",
-    title: "Pilates (Private Classes)",
-    desc: "Elevate your Pilates practice with personalized one-on-one sessions. Our private classes are tailored to your specific needs and fitness goals, providing focused attention and customized instruction for optimal results.",
-    button: "Learn more",
-    services: [
       {
-        title: "1:1 Private Mat Pilates",
-        desc: "Personalized one-on-one mat Pilates sessions tailored to your specific needs and fitness goals. Perfect for focused attention and customized instruction. RM200/session",
-        button: "Learn more",
-      },
-      {
-        title: "1:1 Private Reformer Pilates",
-        desc: "Exclusive one-on-one Reformer Pilates sessions with personalized attention. Ideal for addressing specific concerns and achieving individual fitness objectives. RM400/session",
+        title: "Pilates (Private Classes)",
+        desc: "Elevate your Pilates practice with personalized one-on-one sessions. Our private classes are tailored to your specific needs and fitness goals, providing focused attention and customized instruction for optimal results.",
         button: "Learn more",
       },
     ],
