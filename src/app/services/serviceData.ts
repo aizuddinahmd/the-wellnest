@@ -171,7 +171,7 @@ export const SKIN_SERVICES: ServiceItem[] = [
 
 export const BODY_SERVICES: ServiceItem[] = [
   {
-    icon: "/services/cucian-luka.png",
+    icon: "/services/cellulites.png",
     title: "Stretch Marks & Cellulite Treatment",
     desc: "Comprehensive treatments designed to reduce the appearance of stretch marks and cellulite, improving skin texture and firmness through advanced techniques and professional-grade products.",
     button: "Learn more",
@@ -232,7 +232,7 @@ export const BODY_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/services/weight-loss.png",
+    icon: "/services/fat-melting.png",
     title: "Weight Loss & Body Contouring",
     desc: "Comprehensive weight management solutions including fat melting injections and prescription medications to help you achieve your body goals safely and effectively.",
     button: "Learn more",
@@ -360,7 +360,7 @@ export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
   },
   {
     icon: "/services/fitness.png",
-    title: "Fitness (Group Classes)",
+    title: "Fitness",
     desc: "Join our energetic fitness group classes designed to boost your cardiovascular health, burn calories, and have fun! From dance-based workouts to high-intensity training, find the perfect class to match your fitness goals.",
     button: "Learn more",
     services: [
