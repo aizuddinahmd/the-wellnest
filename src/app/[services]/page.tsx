@@ -53,13 +53,13 @@ export default function ServiceDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Left Side - Text Content */}
           <div className="flex flex-col justify-center">
-            <p className="text-sm font-medium text-gray-600 mb-2 italic">
+            <p className="text-sm font-medium text-[#8b7355] mb-2 italic">
               {service.title}
             </p>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#8b7355] mb-6">
               {service.title}
             </h1>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-[#8b7355] leading-relaxed mb-6">
               {service.desc}
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function ServiceDetailPage() {
 
         {/* How We Can Help Section */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#8b7355] mb-8">
             How we can help?
           </h2>
 
@@ -93,10 +93,10 @@ export default function ServiceDetailPage() {
                   className="w-full flex items-center justify-between py-6 text-left hover:text-gray-600 transition-colors"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-3xl font-light text-gray-800">
+                    <span className="text-3xl font-light text-[#8b7355]">
                       {openIndex === index ? "−" : "+"}
                     </span>
-                    <span className="text-lg font-normal text-gray-900">
+                    <span className="text-lg font-normal text-[#8b7355]">
                       {subService.title}
                     </span>
                   </div>
@@ -105,7 +105,7 @@ export default function ServiceDetailPage() {
                 {/* Accordion Content */}
                 {openIndex === index && (
                   <div className="pb-6 pl-14 pr-4">
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-lg text-[#8b7355] leading-relaxed">
                       {subService.desc}
                     </p>
                   </div>

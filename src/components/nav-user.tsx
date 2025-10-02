@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import Link from "next/link";
 import {
   Bell,
   ChevronsUpDown,
@@ -7,13 +8,9 @@ import {
   LogOut,
   Settings,
   Sparkles,
-} from "lucide-react"
+} from "lucide-react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,24 +19,24 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function NavUser({
   user,
 }: {
   user: {
-    name: string
-    email: string
-    avatar: string
-  }
+    name: string;
+    email: string;
+    avatar: string;
+  };
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarMenu>
@@ -52,7 +49,11 @@ export function NavUser({
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg"><span className="text-sidebar-primary-foreground">{user.name.charAt(0)}</span></AvatarFallback>
+                <AvatarFallback className="rounded-lg">
+                  <span className="text-sidebar-primary-foreground">
+                    {user.name.charAt(0)}
+                  </span>
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
@@ -71,7 +72,11 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg"><span className="text-sidebar-primary-foreground">{user.name.charAt(0)}</span></AvatarFallback>
+                  <AvatarFallback className="rounded-lg">
+                    <span className="text-sidebar-primary-foreground">
+                      {user.name.charAt(0)}
+                    </span>
+                  </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
@@ -89,10 +94,10 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
-                <a href="/settings" className="flex items-center gap-2">
+                <Link href="/settings" className="flex items-center gap-2">
                   <Settings />
                   <span>Settings</span>
-                </a>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <CreditCard />
@@ -112,11 +117,11 @@ export function NavUser({
                     credentials: "include",
                   })
                     .then(() => {
-                      window.location.href = "/login"
+                      window.location.href = "/login";
                     })
                     .catch((error) => {
-                      console.error("Logout failed:", error)
-                    })
+                      console.error("Logout failed:", error);
+                    });
                 }}
                 className="flex w-full items-center gap-2"
               >
@@ -128,5 +133,5 @@ export function NavUser({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }

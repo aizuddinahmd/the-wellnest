@@ -2,12 +2,22 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { SERVICES_MINI } from "@/app/services/serviceData";
+import {
+  SKIN_SERVICES,
+  BODY_SERVICES,
+  HEALTH_WELLNESS_SERVICES,
+} from "@/app/services/serviceData";
 
 // data moved to shared module
 
 export default function Services3() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Combine all services and take first 6
+  const allServices = [
+    ...SKIN_SERVICES,
+    ...BODY_SERVICES,
+    ...HEALTH_WELLNESS_SERVICES,
+  ].slice(0, 6);
 
   return (
     <section className="w-full bg-[#f6f6f8] py-12 px-2 md:px-0">
@@ -15,7 +25,7 @@ export default function Services3() {
         Our services
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {SERVICES_MINI.map((service, i) => {
+        {allServices.map((service, i) => {
           // For the center card in the second row, show the description if open
           if (openIndex === i) {
             return (

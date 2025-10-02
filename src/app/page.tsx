@@ -1,6 +1,6 @@
 // import Navbar from "../components/navbar";
 // import Hero from "../components/hero";
-import DescriptionSection from "../components/description-section";
+// import DescriptionSection from "../components/description-section";
 // import Services from "@/components/Services";
 // import FeaturesLeft from "@/components/FeaturesLeft";
 // import Services2 from "@/components/Services2";

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Calendar, SquareTerminal } from "lucide-react";
@@ -67,7 +68,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="flex items-center justify-center p-2 mb-4">
-          <a href="/admin/dashboard">
+          <Link href="/admin/dashboard">
             <Image
               src="/thewellnest-logo.png"
               alt="The Wellnest"
@@ -75,7 +76,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               height={20}
               unoptimized
             />
-          </a>
+          </Link>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -91,20 +92,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               tooltip="Schedule"
               isActive={hasMounted ? isScheduleActive : false}
             >
-              <a href="/schedule" className="flex items-center gap-2">
+              <Link href="/schedule" className="flex items-center gap-2">
                 <Calendar className="shrink-0" />
                 <span>Schedule</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
             <SidebarMenuButton
               asChild
               tooltip="Analytics"
               isActive={hasMounted ? isAnalyticsActive : false}
             >
-              <a href="/analytics" className="flex items-center gap-2">
+              <Link href="/analytics" className="flex items-center gap-2">
                 <ChartBar className="shrink-0" />
                 <span>Analytics</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

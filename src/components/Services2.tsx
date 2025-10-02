@@ -2,14 +2,24 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { SERVICES } from "@/app/services/serviceData";
+import {
+  SKIN_SERVICES,
+  BODY_SERVICES,
+  HEALTH_WELLNESS_SERVICES,
+} from "@/app/services/serviceData";
 
 // data moved to shared module
 
 export default function Services2() {
   const [index, setIndex] = useState(0);
   const visible = 3;
-  const maxIndex = services.length - visible;
+  // Combine all services
+  const allServices = [
+    ...SKIN_SERVICES,
+    ...BODY_SERVICES,
+    ...HEALTH_WELLNESS_SERVICES,
+  ];
+  const maxIndex = allServices.length - visible;
 
   const handlePrev = () => setIndex((i) => (i > 0 ? i - 1 : maxIndex));
   const handleNext = () => setIndex((i) => (i < maxIndex ? i + 1 : 0));
@@ -30,7 +40,7 @@ export default function Services2() {
         </div>
         <div className="relative">
           <div className="flex gap-6 justify-center">
-            {SERVICES.slice(index, index + visible).map((s, i) => (
+            {allServices.slice(index, index + visible).map((s, i) => (
               <div
                 key={s.title}
                 className={`flex flex-col items-center bg-white rounded-2xl p-8 w-full max-w-xs min-h-[320px] border transition
