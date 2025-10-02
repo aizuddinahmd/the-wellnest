@@ -3,7 +3,7 @@ import { ServiceItem } from "@/app/types/service";
 export const GENERAL_SERVICES: ServiceItem[] = [];
 export const SKIN_SERVICES: ServiceItem[] = [
   {
-    icon: "/services/vaksinasi-imunisasi.png",
+    icon: "/services/medical-facial.png",
     title: "Medical Facial",
     desc: "The Signature facial is a simple yet effective way to care for your skin. It focuses on the essentials — cleansing, gentle exfoliation extractions, and hydration — to leave your skin feeling refreshed and healthy. Perfect for routine maintenance",
     button: "Ketahui lebih lanjut",
@@ -48,7 +48,7 @@ export const SKIN_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/skin/skin-1.png",
+    icon: "/services/acne.png",
     title: "Acne & Acne Scar Treatment",
     desc: "Professional chemical exfoliation treatment that removes damaged skin layers, unclogs pores, and promotes cellular renewal for clearer, smoother skin. Duration: 30-45 minutes.",
     button: "Learn more",
@@ -102,7 +102,7 @@ export const SKIN_SERVICES: ServiceItem[] = [
   },
 
   {
-    icon: "/skin/skin-1.png",
+    icon: "/services/skin-whitening.png",
     title: "Skin Brightening & Pigmentation",
     desc: "Specialized chemical peel treatment designed to target hyperpigmentation, sun damage, and uneven skin tone using brightening agents to reveal luminous, even-toned skin. Duration: 45-60 minutes.",
     button: "Learn more",
@@ -135,7 +135,7 @@ export const SKIN_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/skin/skin-1.png",
+    icon: "/services/skin-rejuvenation.png",
     title: "Skin Rejuvenation",
     desc: "Specialized chemical peel treatment designed to target hyperpigmentation, sun damage, and uneven skin tone using brightening agents to reveal luminous, even-toned skin. Duration: 45-60 minutes.",
     button: "Learn more",
@@ -214,7 +214,7 @@ export const BODY_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/services/ujian-darah.png",
+    icon: "/services/sweating.png",
     title: "Excessive Sweating Treatment",
     desc: "Effective solutions for hyperhidrosis (excessive sweating) using botulinum toxin injections to provide long-lasting relief and improved confidence. Duration: 30-45 minutes.",
     button: "Learn more",
@@ -232,7 +232,7 @@ export const BODY_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/services/pemeriksaan-kesihatan.png",
+    icon: "/services/weight-loss.png",
     title: "Weight Loss & Body Contouring",
     desc: "Comprehensive weight management solutions including fat melting injections and prescription medications to help you achieve your body goals safely and effectively.",
     button: "Learn more",
@@ -288,7 +288,7 @@ export const BODY_SERVICES: ServiceItem[] = [
 
 export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
   {
-    icon: "/pilates/pilates-1.jpg",
+    icon: "/services/general.png",
     title: "General",
     desc: "General health consultation, skin analysis, women's health consultation, lactation consultation, posture analysis, mental health assessment, diet assessment, and body composition analysis.",
     button: "Learn more",
@@ -336,7 +336,7 @@ export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/pilates/pilates-1.jpg",
+    icon: "/services/pilates.png",
     title: "Pilates",
     desc: "Experience the transformative power of Pilates in our dynamic group classes. Suitable for beginners and intermediate levels, our classes focus on core strength, flexibility, and body awareness in a supportive community environment.",
     button: "Learn more",
@@ -359,7 +359,7 @@ export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    icon: "/features/features-1.png",
+    icon: "/services/fitness.png",
     title: "Fitness (Group Classes)",
     desc: "Join our energetic fitness group classes designed to boost your cardiovascular health, burn calories, and have fun! From dance-based workouts to high-intensity training, find the perfect class to match your fitness goals.",
     button: "Learn more",

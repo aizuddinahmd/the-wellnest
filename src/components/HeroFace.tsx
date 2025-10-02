@@ -25,7 +25,7 @@ function Hero() {
           This ensures your program is perfectly tailored to your needs right
           from the start.
         </p>
-        <button className="bg-[#9eaf7c] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#a97a3a] transition-colors">
+        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors">
           Get Appointment
         </button>
       </div>

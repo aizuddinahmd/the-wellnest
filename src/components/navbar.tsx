@@ -12,8 +12,8 @@ const navLinks = [
   { href: "/skin", label: "Skin" },
   { href: "/body", label: "Body" },
   { href: "/health-wellness", label: "Health & Wellness" },
-  { href: "/packages", label: "Packages" },
-  { href: "/memberships", label: "Memberships" },
+  // { href: "/pilates", label: "Pilates" },
+  // { href: "/memberships", label: "Memberships" },
 ];
 
 interface NavbarProps {
@@ -39,7 +39,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
           />
         </Link>
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-6 ml-8">
+        <div className="hidden md:flex items-center gap-8 ml-8">
           {navLinks.map((link, index) => {
             const isActive =
               pathname === link.href ||
@@ -62,7 +62,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
         <div className="hidden md:flex items-center gap-4 ml-8">
           <Link
             href="/get-started"
-            className="bg-[#d6a496]   text-black font-semibold rounded-full px-8 py-3 text-base shadow transition-colors"
+            className="bg-[#d6a496] text-white font-semibold rounded-full px-8 py-3 text-base shadow transition-colors"
           >
             Book now
           </Link>
@@ -111,7 +111,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
             })}
             <Link
               href="/get-started"
-              className="block w-full px-4 py-2 mt-2 text-center bg-[#d6a496] text-black font-semibold rounded-full text-base hover:bg-[#d6a496]/60 transition-colors"
+              className="block w-full px-4 py-2 mt-2 text-center bg-[#d6a496] text-white font-semibold rounded-full text-base hover:bg-[#d6a496]/60 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               Book now

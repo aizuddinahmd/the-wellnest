@@ -22,9 +22,9 @@ export default function ListofServices({ services }: ListofServicesProps) {
           href={`/${createSlug(service.title)}`}
           className="block"
         >
-          <Card className="border-[#bcbcbc] bg-[#f5e8da] p-8 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer h-full">
-            <CardContent className="flex flex-col md:flex-col items-center gap-6 p-0">
-              <div className="flex-shrink-0 flex items-center justify-center mb-4 md:mb-0 rounded-2xl overflow-hidden w-full">
+          <Card className="border-[#bcbcbc] rounded-3xl bg-[#f5e8da] p-4 hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer h-full">
+            <CardContent className="flex flex-col md:flex-col items-center p-0">
+              <div className="flex-shrink-0 flex items-center justify-center md:mb-0 rounded-2xl overflow-hidden w-full">
                 <Image
                   src={service.icon}
                   alt={service.title}
@@ -34,7 +34,7 @@ export default function ListofServices({ services }: ListofServicesProps) {
                 />
               </div>
               <div className="flex-1 flex flex-col items-center w-full">
-                <h3 className="font-bold text-xl mb-2 text-[#18181a] text-center">
+                <h3 className="font-bold text-xl my-2 text-[#18181a] text-center">
                   {service.title}
                 </h3>
               </div>
