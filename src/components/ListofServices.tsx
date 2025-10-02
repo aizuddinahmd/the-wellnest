@@ -34,7 +34,7 @@ export default function ListofServices({ services }: ListofServicesProps) {
                 />
               </div>
               <div className="flex-1 flex flex-col items-center w-full">
-                <h3 className="font-bold text-xl text-[#18181a] text-center">
+                <h3 className="font-bold text-xl text-[#8b7355] text-center">
                   {service.title}
                 </h3>
               </div>

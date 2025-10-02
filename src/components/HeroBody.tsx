@@ -23,7 +23,7 @@ function HeroBody() {
           management. Our expert team provides personalized solutions to help
           you achieve your health and wellness goals.
         </p>
-        <button className="bg-[#9eaf7c] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#a97a3a] transition-colors">
+        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer">
           Get Appointment
         </button>
       </div>

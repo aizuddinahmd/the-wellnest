@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import HeroFace from "@/components/HeroFace";
 import Navbar from "@/components/navbar";
 
@@ -7,6 +8,7 @@ export default function FacePage() {
       <Navbar />
       <HeroFace />
       {/* <ListofCourses /> */}
+      <Footer />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="w-full bg-[#f5e8da] py-12 px-4">
+    <footer className="w-full bg-[#f5e8da] py-12 px-4 mt-16 rounded-3xl">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Opening Hours */}

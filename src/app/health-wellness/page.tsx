@@ -2,6 +2,7 @@ import HeroPilates from "@/components/HeroPilates";
 import Navbar from "@/components/navbar";
 import ListofServices from "@/components/ListofServices";
 import { HEALTH_WELLNESS_SERVICES } from "@/app/services/serviceData";
+import Footer from "@/components/Footer";
 
 export default function HealthWellnessPage() {
   return (
@@ -9,6 +10,7 @@ export default function HealthWellnessPage() {
       <Navbar />
       <HeroPilates />
       <ListofServices services={HEALTH_WELLNESS_SERVICES} />
+      <Footer />
     </section>
   );
 }

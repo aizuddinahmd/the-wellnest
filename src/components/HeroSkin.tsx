@@ -23,7 +23,7 @@ function Hero() {
           improve your overall health and wellness. This ensures your program is
           perfectly tailored to your needs right from the start.
         </p>
-        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors">
+        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer">
           Get Appointment
         </button>
       </div>

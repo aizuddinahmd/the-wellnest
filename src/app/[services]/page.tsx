@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navbar from "@/components/navbar";
 import { getAllServices, getServiceCategory } from "@/lib/serviceUtils";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function ServiceDetailPage() {
   const params = useParams();
@@ -114,6 +115,7 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

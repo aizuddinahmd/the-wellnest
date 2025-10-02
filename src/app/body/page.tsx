@@ -2,6 +2,7 @@ import HeroBody from "@/components/HeroBody";
 import Navbar from "@/components/navbar";
 import ListofServices from "@/components/ListofServices";
 import { BODY_SERVICES } from "@/app/services/serviceData";
+import Footer from "@/components/Footer";
 
 export default function BodyPage() {
   return (
@@ -9,6 +10,7 @@ export default function BodyPage() {
       <Navbar />
       <HeroBody />
       <ListofServices services={BODY_SERVICES} />
+      <Footer />
     </section>
   );
 }
