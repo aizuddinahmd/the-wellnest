@@ -1,17 +1,29 @@
 export default function MovingSign() {
   const tags1 = [
-    "Automated Diagnostics",
-    "Automated Bloodwork",
-    "Platform Access",
-    "Advanced Diagnostics",
-    "Personal Health Coach",
-    "Prescription Wellness",
-    "Hormone Optimization",
-    "Wholesale Products",
-    "Custom Protocols",
-    "In-app Doctors",
-    "Prescription Delivery",
-    "Healthcare Consultation",
+    "Core Strength Pilates",
+    "Posture Correction Class",
+    "Stretch & Strength Session",
+    "Prenatal Pilates Care",
+    "Postpartum Recovery Pilates",
+    "Balance & Flexibility Training",
+
+    "Deep Cleansing Facial",
+    "Skin Tightening Facial",
+    "Acne Clear Facial",
+    "Fat Melting Treatment",
+    "Slim & Sculpt Program",
+    // "Automated Diagnostics",
+    // "Automated Bloodwork",
+    // "Platform Access",
+    // "Advanced Diagnostics",
+    // "Personal Health Coach",
+    // "Prescription Wellness",
+    // "Hormone Optimization",
+    // "Wholesale Products",
+    // "Custom Protocols",
+    // "In-app Doctors",
+    // "Prescription Delivery",
+    // "Healthcare Consultation",
   ];
 
   return (
@@ -30,7 +42,7 @@ export default function MovingSign() {
             {tags1.map((tag, idx) =>
               tag ? (
                 <li key={tag + idx} className="mx-4">
-                  <span className="inline-block rounded-2xl bg-[#d2d8be] text-[#999b85] px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
+                  <span className="inline-block rounded-2xl bg-[#d2d8be] text-[#386963] px-8 py-4 text-2xl font-semibold whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
                     {tag}
                   </span>
                 </li>

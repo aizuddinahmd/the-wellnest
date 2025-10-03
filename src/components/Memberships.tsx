@@ -56,9 +56,9 @@ export default function Memberships({
           </h2>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             At The Wellnest, we invite you to nurture your strength, beauty, and
-            wellbeing through our thoughtfully designed memberships. Choose the
-            path that resonates with your goals, and let us guide you on a
-            transformative journey towards a healthier, more radiant you.
+            wellbeing through our carefully curated memberships. Discover the
+            path that aligns with your goals, and let us accompany you on a
+            transformative journey toward a healthier, more radiant you.
           </p>
         </div>
 

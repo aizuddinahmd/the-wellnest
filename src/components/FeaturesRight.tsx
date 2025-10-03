@@ -24,16 +24,17 @@ function FeaturesRight() {
         </div>
         {/* Left: Text and small images */}
         <div className="flex-1 flex flex-col gap-6 items-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#d6a496] leading-tight">
-            Your Beauty And
+          <h2 className="text-4xl md:text-5xl font-bold text-[#386963] leading-tight">
+            Glow & Grow
             <br />
-            Success Starts Here
+            Begins Here
           </h2>
-          <p className="text-lg text-[#d6a496] max-w-md">
-            We offer a wide range of services to help you look and feel your
-            best. Our experienced stylists are dedicated
+          <p className="text-lg text-[#386963] max-w-md">
+            At The Wellnest, we believe beauty and wellness go hand in hand. Our
+            dedicated doctors and instructors are here to guide you on a journey
+            to look good, feel good, and live well
           </p>
-          <button className="bg-[#d6a496] text-white rounded-xl px-8 py-3 text-base font-medium flex items-center gap-2 hover:bg-[#d6a496]/60 transition-colors">
+          <button className="bg-[#386963] text-white rounded-xl px-8 py-3 text-base font-medium flex items-center gap-2 hover:bg-[#386963]/60 transition-colors">
             Learn More <span className="ml-2">&rarr;</span>
           </button>
         </div>
