@@ -12,7 +12,10 @@ const navLinks = [
   { href: "/skin", label: "Skin" },
   { href: "/body", label: "Body" },
   { href: "/health-wellness", label: "Health & Wellness" },
-  // { href: "/pilates", label: "Pilates" },
+  {
+    href: "/https://the-wellnestbdt.rezerv.co/class",
+    label: "Classes and Packages",
+  },
   // { href: "/memberships", label: "Memberships" },
 ];
 

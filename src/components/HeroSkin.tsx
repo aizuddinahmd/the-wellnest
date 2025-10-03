@@ -18,10 +18,10 @@ function Hero() {
           Skin Care for Health and Wellness
         </h1>
         <p className="text-lg text-[#41484e] max-w-lg">
-          Skin care is a form of exercise that focuses on the core muscles,
-          improving flexibility, strength, and balance. It is a great way to
-          improve your overall health and wellness. This ensures your program is
-          perfectly tailored to your needs right from the start.
+          At The Wellnest, skin care is more than beauty — it’s health and
+          confidence. Every journey starts with a detailed consultation, where
+          we explain and customize treatments to your unique needs in a safe,
+          Muslimah-friendly space.
         </p>
         <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer">
           Get Appointment

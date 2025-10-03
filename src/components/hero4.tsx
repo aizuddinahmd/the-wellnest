@@ -26,7 +26,7 @@ export default function Hero4() {
     <div className="bg-[#f5e8da]">
       <section
         ref={heroRef}
-        className={`relative bg-[#f5e8da] h-full md:h-screen w-full overflow-hidden duration-800 ease-in-out
+        className={`relative bg-[#f5e8da] h-[500px] md:h-screen w-full overflow-hidden duration-800 ease-in-out
           ${isScrolled ? "scale-95" : "scale-100"}
         `}
       >
@@ -36,7 +36,7 @@ export default function Hero4() {
           alt="Hero Pilates"
           fill
           priority
-          className={`object-cover h-full w-full ${
+          className={`object-cover md:h-full md:w-full ${
             isScrolled ? "rounded-b-3xl" : "rounded-none"
           }`}
         />
@@ -64,23 +64,34 @@ export default function Hero4() {
       </section>
       {/* Pill-shaped tags: static below hero on mobile, absolute overlay on desktop */}
       <div
-        className={`relative flex bg-black/90 md:bg-transparent items-start md:items-center gap-4 px-2 py-6 md:py-6 w-full md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 flex-wrap md:justify-center md:gap-3 md:px-4 md:pb-0 md:w-4xl lg:w-6xl md:z-20 transition-all duration-800 ease-in-out
+        className={`relative flex bg-black/40 md:bg-transparent items-start md:items-center gap-4 px-2 py-6 md:py-6 w-full md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 flex-wrap md:justify-center md:gap-3 md:px-4 md:pb-0 md:w-3xl lg:w-5xl md:z-20 transition-all duration-800 ease-in-out
           ${isScrolled ? "scale-95" : "scale-100"}
         `}
       >
         {[
-          "Maximize healthspan",
-          "Increase lifespan",
-          "Build lean muscle",
-          "Reduce body fat",
-          "Optimize hormone levels",
-          "Reduce aging rate",
-          "Improve sleep quality",
-          "Enhance cognitive performance",
-          "Boost sexual wellness",
-          "Regrow hair",
-          "Lower cancer risk",
-          "Strengthen heart health",
+          "Core Strength Pilates",
+          "Posture Correction Class",
+          "Stretch & Strength Session",
+          "Prenatal Pilates Care",
+          "Postpartum Recovery Pilates",
+          "Balance & Flexibility Training",
+          "Deep Cleansing Facial",
+          "Skin Tightening Facial",
+          "Acne Clear Facial",
+          "Fat Melting Treatment",
+          "Slim & Sculpt Program",
+          // "Maximize healthspan",
+          // "Increase lifespan",
+          // "Build lean muscle",
+          // "Reduce body fat",
+          // "Optimize hormone levels",
+          // "Reduce aging rate",
+          // "Improve sleep quality",
+          // "Enhance cognitive performance",
+          // "Boost sexual wellness",
+          // "Regrow hair",
+          // "Lower cancer risk",
+          // "Strengthen heart health",
         ].map((tag) => (
           <span
             key={tag}

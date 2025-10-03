@@ -72,9 +72,9 @@ export default function AboutUs2() {
       <div className="text-4xl font-bold text-[#23235b] mb-8 text-center font-serif">
         Meet Our Instructors
       </div>
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="md:max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Right: Doctor Cards */}
-        <div className="flex-1 flex flex-col md:flex-row gap-6 justify-center w-full overflow-x-auto md:overflow-visible">
+        <div className="flex-1 flex flex-col items-center lg:flex-row  gap-6 justify-center w-full overflow-x-auto md:overflow-hidden">
           {doctors.slice(index, index + visible).map((doctor) => (
             <DoctorCard key={doctor.name} doctor={doctor} />
           ))}
