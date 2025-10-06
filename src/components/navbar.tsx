@@ -13,8 +13,9 @@ const navLinks = [
   { href: "/body", label: "Body" },
   { href: "/health-wellness", label: "Health & Wellness" },
   {
-    href: "/https://the-wellnestbdt.rezerv.co/class",
+    href: "https://the-wellnestbdt.rezerv.co/class",
     label: "Classes and Packages",
+    external: true,
   },
   // { href: "/memberships", label: "Memberships" },
 ];
@@ -47,6 +48,21 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
             const isActive =
               pathname === link.href ||
               (activeCategory && link.href === `/${activeCategory}`);
+
+            if (link.external) {
+              return (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-600 font-semibold text-base hover:text-[#D6A496] transition-colors"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
             return (
               <Link
                 key={index}
@@ -98,6 +114,22 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
               const isActive =
                 pathname === link.href ||
                 (activeCategory && link.href === `/${activeCategory}`);
+
+              if (link.external) {
+                return (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full px-4 py-2 text-gray-800 font-semibold text-base hover:text-[#D6A496] rounded"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
               return (
                 <Link
                   key={index}
