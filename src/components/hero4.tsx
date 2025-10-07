@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 export default function Hero4() {
   const [isScrolled, setIsScrolled] = useState(false);
