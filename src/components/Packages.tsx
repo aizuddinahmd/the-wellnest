@@ -18,7 +18,7 @@ export default function Packages({
   const { features, packages } = data;
   const [currentPackageIndex, setCurrentPackageIndex] = useState(0);
 
-  const renderFeatureValue = (value: number | boolean) => {
+  const renderFeatureValue = (value: number | boolean | string) => {
     if (typeof value === "boolean") {
       return value ? (
         <Check className="h-5 w-5 text-green-500 mx-auto" />
