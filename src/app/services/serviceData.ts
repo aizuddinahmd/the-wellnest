@@ -6,44 +6,38 @@ export const SKIN_SERVICES: ServiceItem[] = [
     icon: "/services/medical-facial.png",
     title: "Medical Facial",
     desc: "The Signature facial is a simple yet effective way to care for your skin. It focuses on the essentials — cleansing, gentle exfoliation extractions, and hydration — to leave your skin feeling refreshed and healthy. Perfect for routine maintenance",
-    button: "Ketahui lebih lanjut",
+    button: "Learn more",
     services: [
+      {
+        title: "Basic Facial",
+        desc: "Gentle maintainance for all skin types focus on cleansing, hydrating and refreshing the skin",
+        button: "Learn more",
+      },
       {
         title: "Deep Cleansing Facial",
         desc: "A deep cleansing facial that targets excess oil, impurities, and dead skin cells to unclog pores and improve skin texture.",
-        button: "Ketahui lebih lanjut",
-      },
-      {
-        title: "Signature Facial",
-        desc: "The Signature facial is a simple yet effective way to care for your skin. It focuses on the essentials — cleansing, gentle exfoliation extractions, and hydration — to leave your skin feeling refreshed and healthy. Perfect for routine maintenance",
-        button: "Ketahui lebih lanjut",
+        button: "Learn more",
       },
       {
         title: "Hydrafacial",
         desc: "The HydraFacial is an advanced treatment designed to restore hydration and vitality to the skin. Using advanced technology, it combines deep cleansing, gentle exfoliation, extractions, and intense hydration in one session.",
-        button: "Ketahui lebih lanjut",
+        button: "Learn more",
       },
       {
         title: "Acne Clear Facial",
         desc: "Acne is a complex dermatological condition that often requires medical expertise to address underlying factors, not just surface symptoms.",
-        button: "Ketahui lebih lanjut",
+        button: "Learn more",
       },
       {
         title: "Skin Tightening Facial",
         desc: "The skin tightening facial is designed to firm and lift the skin, restoring a more youthful appearance. Using advanced technology, this treatment stimulates collagen production, improves elasticity, and smooths fine lines",
-        button: "Ketahui lebih lanjut",
+        button: "Learn more",
       },
 
       {
         title: "Glow Boost Facial",
         desc: "The Glow Boost Facial is all about restoring radiance and vitality to your skin. This treatment combines deep cleansing, gentle exfoliation, and an infusion of Vitamin C serums to brighten, even out skin tone, and protect against environmental stressors.",
-        button: "Ketahui lebih lanjut",
-      },
-
-      {
-        title: "Glow Boost Facial",
-        desc: "The Glow Boost Facial is all about restoring radiance and vitality to your skin. This treatment combines deep cleansing, gentle exfoliation, and an infusion of Vitamin C serums to brighten, even out skin tone, and protect against environmental stressors.",
-        button: "Ketahui lebih lanjut",
+        button: "Learn more",
       },
     ],
   },
@@ -177,37 +171,17 @@ export const BODY_SERVICES: ServiceItem[] = [
     button: "Learn more",
     services: [
       {
-        title: "Chemical Peel - Belly Area",
-        desc: "Professional chemical peel treatment specifically designed for the belly area to reduce stretch marks and improve skin texture. Helps to smooth and even out skin appearance.",
+        title: "Chemical Peel",
+        desc: "Targeted chemical peel treatment for the thighs to address stretch marks and cellulite. Improves skin smoothness and reduces the appearance of dimpled skin. Areas that can be treated are thighs, buttocks, and belly.",
         button: "Learn more",
       },
       {
-        title: "Chemical Peel - Thighs",
-        desc: "Targeted chemical peel treatment for the thighs to address stretch marks and cellulite. Improves skin smoothness and reduces the appearance of dimpled skin.",
+        title: "Microneedling + Collagen Biostimulator",
+        desc: "Advanced microneedling treatment combined with collagen biostimulator for the thighs to address stretch marks and cellulite. Stimulates collagen production to improve skin smoothness and reduce the appearance of dimpled skin. Areas that can be treated are thighs, buttocks, and belly area.",
         button: "Learn more",
       },
       {
-        title: "Chemical Peel - Buttocks",
-        desc: "Specialized chemical peel treatment for the buttocks area to reduce stretch marks and improve skin texture. Enhances skin firmness and smoothness.",
-        button: "Learn more",
-      },
-      {
-        title: "Microneedling + Collagen Biostimulator - Belly Area",
-        desc: "Advanced microneedling treatment combined with collagen biostimulator for the belly area. Stimulates collagen production to improve stretch marks and skin texture.",
-        button: "Learn more",
-      },
-      {
-        title: "Microneedling + Collagen Biostimulator - Thighs",
-        desc: "Microneedling treatment with collagen biostimulator for the thighs. Targets stretch marks and cellulite while promoting skin renewal and improved texture.",
-        button: "Learn more",
-      },
-      {
-        title: "Microneedling + Collagen Biostimulator - Buttocks",
-        desc: "Microneedling combined with collagen biostimulator for the buttocks area. Helps reduce stretch marks and improve skin firmness and smoothness.",
-        button: "Learn more",
-      },
-      {
-        title: "Topical Treatments - Stretch Marks",
+        title: "Topical Treatments",
         desc: "Professional topical treatment package containing specialized creams and serums designed to reduce stretch marks and improve skin elasticity. Ongoing treatment for optimal results.",
         button: "Learn more",
       },
@@ -220,13 +194,8 @@ export const BODY_SERVICES: ServiceItem[] = [
     button: "Learn more",
     services: [
       {
-        title: "Botulinum Toxin Injection - Armpits",
-        desc: "Botulinum toxin injection treatment for excessive underarm sweating (hyperhidrosis). Provides long-lasting relief from excessive perspiration in the armpit area. Duration: 30-45 minutes.",
-        button: "Learn more",
-      },
-      {
-        title: "Botulinum Toxin Injection - Hands",
-        desc: "Botulinum toxin injection treatment for excessive hand sweating (hyperhidrosis). Effectively reduces excessive perspiration in the hands for improved comfort and confidence. Duration: 30-45 minutes.",
+        title: "Botulinum Toxin Injection - Armpits & Hands",
+        desc: "Botulinum toxin injection treatment for excessive underarm sweating (hyperhidrosis) and hands. Provides long-lasting relief from excessive perspiration in the armpit area. Duration: 30-45 minutes. ",
         button: "Learn more",
       },
     ],
@@ -238,33 +207,8 @@ export const BODY_SERVICES: ServiceItem[] = [
     button: "Learn more",
     services: [
       {
-        title: "Fat Melting Injection - Double Chin",
-        desc: "Targeted fat melting injection treatment for double chin reduction. Uses specialized compounds to break down and eliminate stubborn fat deposits under the chin area.",
-        button: "Learn more",
-      },
-      {
-        title: "Fat Melting Injection - Arms",
-        desc: "Fat melting injection treatment for arm fat reduction. Targets stubborn fat deposits in the upper arms to create a more toned and contoured appearance.",
-        button: "Learn more",
-      },
-      {
-        title: "Fat Melting Injection - Belly Pooch",
-        desc: "Specialized fat melting injection for belly pooch reduction. Targets lower abdominal fat deposits to create a flatter, more toned stomach area.",
-        button: "Learn more",
-      },
-      {
-        title: "Fat Melting Injection - Thighs",
-        desc: "Fat melting injection treatment for thigh fat reduction. Helps eliminate stubborn fat deposits in the thigh area for improved leg contour and definition.",
-        button: "Learn more",
-      },
-      {
-        title: "Fat Melting Injection - Buttocks",
-        desc: "Fat melting injection treatment for buttock fat reduction. Targets excess fat deposits in the buttock area to improve overall body contour and shape.",
-        button: "Learn more",
-      },
-      {
-        title: "Fat Melting Injection - Whole Body",
-        desc: "Comprehensive fat melting injection treatment for multiple body areas. Full-body approach to fat reduction targeting multiple areas in a single treatment session.",
+        title: "Fat Melting Injection",
+        desc: "Targeted fat melting injection treatment for double chin reduction. Uses specialized compounds to break down and eliminate stubborn fat deposits under the chin area. Areas: Double Chin, arms, belly pooch, thighs, buttocks, and whole body.",
         button: "Learn more",
       },
       {
