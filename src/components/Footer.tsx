@@ -12,8 +12,10 @@ function Footer() {
               OPENING HOURS
             </h3>
             <div className="space-y-2 text-sm text-[#8b7355]">
-              <div>Tuesday - Sunday:</div>
+              <div>Tuesday - Friday:</div>
               <div>8:00AM - 8:00PM</div>
+              <div>Saturday - Sunday:</div>
+              <div>8:00AM - 7:00PM</div>
               <div>Monday: Closed</div>
               <div>Appointment based only</div>
             </div>
