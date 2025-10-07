@@ -64,7 +64,7 @@ export const PACKAGE_COMPARISON: PackageComparison = {
       features: {
         signature_facial: 1,
         reformer_pilates: 4,
-        validity_months: 1,
+        validity_months: 3,
         body_composition_analysis: true,
         skin_analysis: false,
         mental_health_assessment: false,
@@ -80,7 +80,7 @@ export const PACKAGE_COMPARISON: PackageComparison = {
       features: {
         signature_facial: 2,
         reformer_pilates: 8,
-        validity_months: 2,
+        validity_months: 6,
         body_composition_analysis: true,
         skin_analysis: true,
         mental_health_assessment: true,

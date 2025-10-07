@@ -41,7 +41,7 @@ export default function Home() {
         <MovingSign />
         <FeaturesRight />
         {/* <FeaturesLeft /> */}
-        <AboutUs2 />
+        {/* <AboutUs2 /> */}
         <Packages />
         <Memberships />
         <ListofTestimonials />

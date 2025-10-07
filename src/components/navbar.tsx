@@ -14,7 +14,12 @@ const navLinks = [
   { href: "/health-wellness", label: "Health & Wellness" },
   {
     href: "https://the-wellnestbdt.rezerv.co/class",
-    label: "Classes and Packages",
+    label: "Classes",
+    external: true,
+  },
+  {
+    href: "https://the-wellnestbdt.rezerv.co/package",
+    label: "Packages",
     external: true,
   },
   // { href: "/memberships", label: "Memberships" },
