@@ -9,7 +9,7 @@ export interface PackagePricing {
   price: number;
   currency: string;
   features: {
-    [featureId: string]: number | boolean;
+    [featureId: string]: number | boolean | string;
   };
   description?: string;
   color: string;
