@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 function Hero() {
@@ -23,7 +25,10 @@ function Hero() {
           we explain and customize treatments to your unique needs in a safe,
           Muslimah-friendly space.
         </p>
-        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer">
+        <button
+          className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer"
+          onClick={() => window.open("https://wa.link/6w1x6w", "_blank")}
+        >
           Get Appointment
         </button>
       </div>

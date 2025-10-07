@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 function HeroBody() {
@@ -23,7 +25,10 @@ function HeroBody() {
           management. Our expert team provides personalized solutions to help
           you achieve your health and wellness goals.
         </p>
-        <button className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer">
+        <button
+          className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/60 transition-colors hover:cursor-pointer"
+          onClick={() => window.open("https://wa.link/6w1x6w", "_blank")}
+        >
           Get Appointment
         </button>
       </div>
