@@ -40,7 +40,7 @@ export const PACKAGE_COMPARISON: PackageComparison = {
   ],
   packages: [
     {
-      packageName: "Single Trial",
+      packageName: "Glow & Flow Single Trial",
       price: 99,
       currency: "RM",
       color: "#8C9B8C",
