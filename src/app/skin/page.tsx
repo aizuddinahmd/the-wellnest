@@ -1,6 +1,5 @@
 import HeroSkin from "@/components/HeroSkin";
 import Navbar from "@/components/navbar";
-// import ListofCourses from "@/components/ListofCourses";
 import ListofServices from "@/components/ListofServices";
 import { SKIN_SERVICES } from "../services/serviceData";
 import Footer from "@/components/Footer";
