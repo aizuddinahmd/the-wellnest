@@ -14,7 +14,7 @@ import ListofTestimonials from "../components/ListofTestimonials";
 // import Hero from "@/components/hero";
 // import Hero2 from "@/components/Hero2";
 import Footer from "@/components/Footer";
-import AboutUs2 from "@/components/AboutUs2";
+// import AboutUs2 from "@/components/AboutUs2";
 // import Hero4 from "@/components/hero4";
 import MovingSign from "@/components/MovingSign";
 // import Hero3 from "@/components/Hero3";
