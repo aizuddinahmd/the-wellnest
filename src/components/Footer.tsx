@@ -38,7 +38,7 @@ function Footer() {
             </h3>
             <div className="flex justify-center md:justify-start gap-4 mb-4">
               <Link
-                href="https://instagram.com/klinikdrtwins"
+                href="https://instagram.com/twnbydrtwins"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -111,7 +111,7 @@ function Footer() {
                 </svg>
               </Link>
               <Link
-                href="https://wa.me/601156653180"
+                href="https://wa.link/6w1x6w"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
