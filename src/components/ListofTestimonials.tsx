@@ -56,7 +56,7 @@ export default function ListofTestimonials() {
   return (
     <section className="w-full py-16">
       <h2 className="text-3xl md:text-4xl font-bold text-[#18181a] mb-8 text-center">
-        Apa Kata Pesakit Kami
+        What our clients say
       </h2>
       <div className="max-w-5xl mx-auto">
         <Carousel>
