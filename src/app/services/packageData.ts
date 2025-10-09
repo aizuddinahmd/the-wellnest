@@ -40,7 +40,7 @@ export const PACKAGE_COMPARISON: PackageComparison = {
   ],
   packages: [
     {
-      packageName: "Glow & Flow Single Trial",
+      packageName: "Wellnest Starter Pack",
       price: 99,
       currency: "RM",
       color: "#8C9B8C",
