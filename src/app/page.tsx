@@ -6,6 +6,8 @@ import MovingSign from "@/components/MovingSign";
 import Hero4 from "@/components/hero4";
 import Navbar from "@/components/navbar";
 import Packages from "@/components/Packages";
+import AboutUs2 from "@/components/AboutUs2";
+import CTA from "@/components/CTA";
 // import Memberships from "@/components/Memberships";
 
 export default function Home() {
@@ -18,10 +20,11 @@ export default function Home() {
         <MovingSign />
         <FeaturesRight />
         {/* <FeaturesLeft /> */}
-        {/* <AboutUs2 /> */}
+        <AboutUs2 />
         <Packages />
         {/* <Memberships /> */}
         <ListofTestimonials />
+        <CTA />
         <Footer />
       </main>
     </>

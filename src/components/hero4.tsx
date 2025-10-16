@@ -32,7 +32,7 @@ export default function Hero4() {
       >
         {/* Background image */}
         <Image
-          src="/pilates/pilates-1.jpg"
+          src="/pilates/pilates-3.jpg"
           alt="Hero Pilates"
           fill
           priority
