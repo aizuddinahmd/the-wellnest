@@ -24,7 +24,7 @@ export default function CTA() {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6">
           <Link
-            href="https://wa.link/6w1x6w"
+            href="https://wa.link/34cndr"
             className="bg-[#d6a496] text-white rounded-xl px-8 py-4 text-lg font-semibold w-fit hover:bg-[#d6a496]/80 transition-colors hover:cursor-pointer shadow-lg"
           >
             Enquire Now
