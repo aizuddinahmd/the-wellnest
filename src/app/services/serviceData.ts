@@ -292,27 +292,4 @@ export const HEALTH_WELLNESS_SERVICES: ServiceItem[] = [
       },
     ],
   },
-  {
-    icon: "/services/fitness.png",
-    title: "Fitness",
-    desc: "Join our energetic fitness group classes designed to boost your cardiovascular health, burn calories, and have fun! From dance-based workouts to high-intensity training, find the perfect class to match your fitness goals.",
-    button: "Learn more",
-    services: [
-      {
-        title: "Zumba",
-        desc: "High-energy dance fitness class combining Latin and international music with easy-to-follow dance moves. Perfect for cardio, fun, and stress relief. RM15/session",
-        button: "Learn more",
-      },
-      {
-        title: "Baby-wearing Dance",
-        desc: "Specialized dance fitness class designed for parents with babies. Safe and fun way to exercise while bonding with your little one through movement and music. RM15/session",
-        button: "Learn more",
-      },
-      {
-        title: "HIIT",
-        desc: "High-Intensity Interval Training class combining short bursts of intense exercise with brief recovery periods. Maximize calorie burn and improve cardiovascular fitness. RM15/session",
-        button: "Learn more",
-      },
-    ],
-  },
 ];
