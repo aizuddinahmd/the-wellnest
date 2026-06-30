@@ -56,7 +56,7 @@ export default function Hero4() {
             </h1>
             <div className="flex flex-col gap-4 w-full max-w-md">
               <button
-                onClick={() => window.open("https://wa.link/6w1x6w", "_blank")}
+                onClick={() => window.open("https://wa.link/dqdxzc", "_blank")}
                 className="bg-white text-[#d6a496] rounded-full px-8 py-4 text-lg font-semibold w-full shadow-lg hover:bg-gray-100 transition-colors cursor-pointer"
               >
                 Book now

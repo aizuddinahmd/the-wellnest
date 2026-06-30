@@ -111,7 +111,7 @@ function Footer() {
                 </svg>
               </Link>
               <Link
-                href="https://wa.link/6w1x6w"
+                href="https://wa.link/dqdxzc"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

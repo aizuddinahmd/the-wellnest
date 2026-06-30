@@ -85,7 +85,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
         {/* Desktop Right Side: Dashboard and Get Started */}
         <div className="hidden md:flex items-center gap-4 ml-8">
           <Link
-            href="https://wa.link/6w1x6w"
+            href="https://wa.link/dqdxzc"
             className="bg-[#d6a496] text-white font-semibold rounded-full px-8 py-3 text-base shadow transition-colors"
           >
             Book now
@@ -150,7 +150,7 @@ function Navbar({ activeCategory }: NavbarProps = {}) {
               );
             })}
             <Link
-              href="https://wa.link/6w1x6w"
+              href="https://wa.link/dqdxzc"
               className="block w-full px-4 py-2 mt-2 text-center bg-[#d6a496] text-white font-semibold rounded-full text-base hover:bg-[#d6a496]/60 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
